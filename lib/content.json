@@ -3,319 +3,772 @@
   "locales": {
     "uk": {
       "meta": {
-        "title": "Barberking — Чоловічий барбершоп у Львові | Вул. Шевченка 31А",
-        "description": "Чоловічий барбершоп у Львові на вул. Шевченка 31А. Власний безкоштовний паркінг, віскі-бар, професійні барбери та тату-студія Tattoo Room.",
-        "lang": "uk"
+        "title": "Barberking — Чоловічий барбершоп у Львові | вул. Шевченка 31А",
+        "description": "Сучасний чоловічий барбершоп у Львові. Стрижки від 600 грн, королівське гоління, Tattoo Room та власний паркінг."
       },
       "common": {
-        "bookOnline": "Записатися онлайн",
-        "callUs": "Зателефонувати",
-        "workingHours": "10:00 – 21:00 щодня",
+        "bookOnline": "Записатись онлайн",
+        "bookAction": "Записатись",
+        "quickCall": "Зателефонувати",
         "address": "м. Львів, вул. Шевченка 31А",
-        "rating": "4.9 / 5 (674 відгуки)",
+        "addressShort": "Шевченка 31А",
+        "hours": "Щодня з 10:00 до 21:00",
+        "rating": "4.9 / 5.0 (674 відгуки в Google)",
         "currency": "грн",
         "from": "від",
-        "close": "Закрити",
-        "openMenu": "Меню"
+        "phone": "+380 66 263 6339",
+        "workingHours": "10:00 – 21:00",
+        "freeParking": "Безоплатний паркінг",
+        "freeDrinks": "Частування віскі та кавою"
       },
       "nav": {
         "services": "Послуги та ціни",
         "calculator": "Калькулятор",
-        "advantages": "Переваги",
+        "masters": "Майстри",
         "tattoo": "Tattoo Room",
-        "team": "Майстри",
-        "reviews": "Відгуки (674)",
+        "amenities": "Переваги",
+        "portfolio": "Портфоліо",
+        "reviews": "Відгуки",
+        "faq": "Часті питання",
         "contacts": "Контакти"
       },
+      "header": {
+        "brandSub": "БАРБЕРШОП ЛЬВІВ · ВУЛ. ШЕВЧЕНКА 31А",
+        "switchLangAria": "Switch Language",
+        "toggleMenuAria": "Toggle Mobile Menu",
+        "closeMenu": "ЗАКРИТИ",
+        "openMenu": "МЕНЮ",
+        "mobileFooterNote": "Щодня 10:00 – 21:00 · Власний паркінг"
+      },
       "hero": {
-        "kickerMeta": "EST. 2018 · М. ЛЬВІВ, ВУЛ. ШЕВЧЕНКА 31А · ПАРКІНГ",
-        "title": "Чоловічий барбершоп із власним безкоштовним паркінгом",
-        "subtitle": "Чоловічі стрижки, точне моделювання бороди та королівське гоління у Львові. Чоловічий простір із безкоштовним віскі-баром.",
-        "ctaPrimary": "Записатися онлайн",
-        "ctaSecondary": "Переглянути прайс-лист",
-        "metaHours": "10:00 – 21:00 щодня",
-        "metaAddress": "вул. Шевченка 31А, Львів",
-        "metaRating": "4.9 / 5 · 674 відгуки",
-        "flankLeft": "Власний приватний паркінг безпосередньо перед входом",
-        "flankRight": "Free Bar & Coffee для кожного гостя барбершопу"
+        "kicker": "ЗАСНОВАНО 2019 · ЛЬВІВ, ВУЛ. ШЕВЧЕНКА 31А",
+        "title1": "Точна чоловіча стрижка та королівське гоління",
+        "titleAccent": "за класичним регламентом",
+        "subtitle": "Класичний барберинг високої точності, власний майданчик для паркування, частування напоями та Tattoo Room у ЖК Семицвіт.",
+        "badgeParking": "Приватний паркінг біля входу",
+        "subLocation": "ВУЛ. ШЕВЧЕНКА 31А · ЖК СЕМИЦВІТ",
+        "badgeDrinks": "ВІСКІ-БАР ТА КАВА ВИНЕСЕНІ У ВАРТІСТЬ",
+        "ctaBook": "Обрати час та записатися",
+        "ctaServices": "Переглянути прайс-лист",
+        "hoursLabel": "ГОДИНИ",
+        "addressLabel": "АДРЕСА",
+        "addressValue": "Шевченка 31А",
+        "ratingLabel": "РЕЙТИНГ",
+        "ratingValue": "4.9 / 5.0 Google",
+        "scrollCue": "SCROLL"
       },
-      "proofTicker": [
-        "4.9 / 5 ОЦІНКА В GOOGLE MAPS",
-        "674+ ВІДГУКІВ ГОСТЕЙ",
-        "250 000+ ВИКОНАНИХ СТРИЖОК",
-        "БЕЗКОШТОВНИЙ ПАРКІНГ НА ШЕВЧЕНКА 31А",
-        "FREE WHISKEY BAR ДЛЯ ГОСТЕЙ",
-        "ВЛАСНА ТАТУ-ЗУПИНКА TATTOO ROOM"
-      ],
-      "services": {
-        "kicker": "ПРАЙС-ЛИСТ ТА ПОСЛУГИ · СЕЗОН 2026",
-        "title": "Майстерність у кожному русі",
-        "subtitle": "Чоловіче стриження, точне моделювання бороди та комплексний догляд за обличчям і волоссям.",
-        "footnote": "*Усі послуги включають миття голови до та після, професійний стайлінг та напої з бару без додаткової оплати.",
+      "socialProof": {
+        "tickerItems": [
+          "БАРБЕРШОП НА ШЕВЧЕНКА 31А",
+          "674 ВІДГУКИ В GOOGLE MAPS",
+          "ПРИВАТНИЙ ПАРКІНГ ДЛЯ ГОСТЕЙ",
+          "ЧАСТУВАННЯ ВІСКІ ТА КАВОЮ",
+          "ВЛАСНА TATTOO ROOM У БАРБЕРШОПІ",
+          "3-ЕТАПНА СТЕРИЛІЗАЦІЯ ІНСТРУМЕНТІВ"
+        ]
+      },
+      "servicesSection": {
+        "kicker": "ПОСЛУГИ ТА ПРАЙС-ЛИСТ",
+        "title": "Фіксовані ціни без прихованих доплат",
+        "subtitle": "Обирайте окрему процедуру або комплексний сет для економії часу.",
+        "includeWash": "Включає подвійне миття та укладку",
+        "footnote": "* Усі процедури включають миття голови до та після, опрацювання контуру та професійну укладку.",
+        "bannerAlt": "Прайс-лист Barberking Львів",
+        "bannerKicker": "ЛОКАЦІЯ ЛЬВІВ · ЖК СЕМИЦВІТ",
+        "bannerText": "Вул. Шевченка 31А — простір чоловічого стилю, спокою та точного догляду.",
+        "tabs": {
+          "all": "Усі послуги",
+          "hair": "Стрижки волосся",
+          "shave": "Борода та гоління",
+          "combo": "Комплексні сети",
+          "care": "Догляд та камуфляж"
+        },
         "items": [
           {
-            "id": "haircut",
-            "title": "Професійна чоловіча стрижка",
-            "price": "600 грн",
+            "id": "1",
+            "name": "Професійна чоловіча стрижка",
+            "price": "від 600 грн",
             "duration": "45 хв",
-            "tag": "ХІТ ВІЗИТІВ",
-            "category": "Стрижки",
-            "description": "Підбір форми з урахуванням структури волосся. Включає миття голови до та після, масаж та стайлінг преміум-косметикою."
+            "desc": "Підбір форми з урахуванням геометрії обличчя та структури волосся. Включає подвійне миття голови, легкий масаж та укладку.",
+            "tag": "КЛАСИКА"
           },
           {
-            "id": "combo",
-            "title": "Комплекс: стрижка + борода",
-            "price": "950 грн",
+            "id": "2",
+            "name": "Стрижка + оформлення бороди (Комплекс)",
+            "price": "від 950 грн",
             "duration": "75 хв",
-            "tag": "ТОП ВИБІР",
-            "isSignature": true,
-            "category": "Комплекси",
-            "description": "Повноцінна чоловіча стрижка з розпарюванням бороди гарячим рушником, чіткою окантовкою та доглядом олією."
+            "desc": "Повноцінна чоловіча стрижка та моделювання бороди з розпарюванням гарячим рушником і опрацюванням контуру небезпечною бритвою.",
+            "popular": true,
+            "tag": "ХІТ СЕСІЇ"
           },
           {
-            "id": "beard",
-            "title": "Стрижка та моделювання бороди",
-            "price": "450 грн",
+            "id": "3",
+            "name": "Королівське гоління",
+            "price": "від 400 грн",
+            "duration": "45 хв",
+            "desc": "Класичний ритуал гоління небезпечною бритвою. Потрійне розпарювання шкіри із заспокійливими ефірними оліями, компресування та зволоження.",
+            "tag": "РИТУАЛ"
+          },
+          {
+            "id": "4",
+            "name": "Стрижка бороди та вусів",
+            "price": "від 450 грн",
             "duration": "35 хв",
-            "category": "Борода",
-            "description": "Архітектура та корекція лінії бороди ножицями, тримером та шейвером. Окантовка для чіткого силуету."
+            "desc": "Моделювання чіткої форми бороди, вирівнювання ліній росту та фінішний догляд живильною олією.",
+            "tag": "ТОЧНІСТЬ"
           },
           {
-            "id": "clipper",
-            "title": "Стрижка машинкою з фадом (Fade)",
-            "price": "450 грн",
+            "id": "5",
+            "name": "Стрижка машинкою",
+            "price": "від 450 грн",
             "duration": "30 хв",
-            "category": "Стрижки",
-            "description": "Перехід Fade від 0 мм із використанням кілька насадок і прецизійних тримерів. Включає миття голови."
+            "desc": "Стрижка з використанням 2-3 насадок, опрацюванням скроневих зон та деталізацією окантовки. Миття голови включено.",
+            "tag": "ЕКСПРЕС"
           },
           {
-            "id": "royal_shave",
-            "title": "Королівське гоління",
-            "price": "400 грн",
-            "duration": "40 хв",
-            "category": "Догляд",
-            "description": "Традиційний ритуал гладкого гоління з одноразовим лезом. Дворазове гаряче розпарювання рушником та лосьйон."
+            "id": "6",
+            "name": "Комплекс «Батько + Син»",
+            "price": "від 1050 грн",
+            "duration": "90 хв",
+            "desc": "Паралельна або послідовна стрижка для батька та сина у комфортній обстановці з частуванням для молодшого гостя.",
+            "popular": true,
+            "tag": "СЕМЕЙНИЙ СЕТ"
           },
           {
-            "id": "father_son",
-            "title": "Комплекс «Батько + Син»",
-            "price": "1000 грн",
-            "duration": "60 хв",
-            "tag": "СІМЕЙНИЙ",
-            "category": "Комплекси",
-            "description": "Паралельна стрижка для тата та сина у дружній атмосфері з частуванням для обох."
+            "id": "7",
+            "name": "Камуфлювання сивини бороди або волосся",
+            "price": "від 400 грн",
+            "duration": "30 хв",
+            "desc": "М'яке тонування без ефекту штучно пофарбованого волосся. Повертає природний відтінок за 15 хвилин.",
+            "tag": "ТОНУВАННЯ"
           },
           {
-            "id": "camouflage",
-            "title": "Камуфлювання сивини бороди/волосся",
-            "price": "350 грн",
+            "id": "8",
+            "name": "Укладка волосся стайлінгом",
+            "price": "від 250 грн",
             "duration": "20 хв",
-            "category": "Догляд",
-            "description": "М'яке безаміачне тонування сивини з природним відтінком без рудого підтону."
-          },
-          {
-            "id": "black_mask",
-            "title": "Очищаюча маска Black Mask",
-            "price": "300 грн",
-            "duration": "25 хв",
-            "category": "Догляд",
-            "description": "Глибока детокс-процедура для шкіри обличчя: витягує забруднення з пор та освіжає колір обличчя."
+            "desc": "Створення стриманого та охайного образу перед подією з використанням матових глин та помад.",
+            "tag": "ФІНІШ"
           }
         ]
       },
-      "calculator": {
-        "kicker": "ОНЛАЙН-РОЗРАХУНОК ВІЗИТУ",
-        "title": "Сконструюйте свій візит",
-        "subtitle": "Оберіть потрібні послуги, категорію барбера та отримайте калькуляцію вартості та часу візиту.",
-        "barberTier": "Категорія барбера",
-        "tierBarber": "Барбер (від 600 грн)",
-        "tierGrand": "Grand Barber (від 700 грн)",
-        "optionsTitle": "Додайте послуги до комплексу:",
-        "loyaltyCheck": "Маю карту лояльності Barberking (-10%)",
-        "estimatedTime": "Орієнтовний час візиту:",
-        "totalPrice": "Разом до сплати:",
-        "bookCalculated": "Записатися за цим розрахунком"
+      "calculatorSection": {
+        "kicker": "ІНТЕРАКТИВНИЙ РОЗРАХУНОК",
+        "title": "Розрахуйте вартість візиту за 10 секунд",
+        "subtitle": "Оберіть необхідні послуги та рівень кваліфікації барбера для підсумкової калькуляції.",
+        "selectServices": "1. Оберіть процедури",
+        "selectMin1": "Оберіть 1+ процедури",
+        "tagYes": "ТАК",
+        "selectMaster": "2. Кваліфікація майстра",
+        "expCoefficient": "Коефіцієнт досвіду",
+        "summaryBadge": "ПІДСУМОК ВІЗИТУ",
+        "totalEstimate": "Розрахункова вартість:",
+        "masterLabel": "Майстер:",
+        "selectedList": "Обраний перелік:",
+        "parkingNote": "Паркінг та напої на барі включено",
+        "btnLockPrice": "Зафіксувати ціну та записатися"
       },
-      "advantages": {
-        "kicker": "ЧОМУ ОБИРАЮТЬ BARBERKING · ЛЬВІВ",
-        "title": "4 причини обрати наш барбершоп",
-        "subtitle": "Ми продумали кожну деталь перебування — від паркування авто до напою у склянці.",
-        "quote": "«Ми створили місце, куди чоловік приходить відпочити, а повертається із впевненістю в кожному русі.»",
-        "author": "Матлаб — Grand Barber, засновник напрямку",
-        "stats": [
-          { "value": "674+", "label": "відгуків у Google Maps" },
-          { "value": "250K+", "label": "виконаних стрижок" },
-          { "value": "100%", "label": "безкоштовний паркінг" },
-          { "value": "8+", "label": "років досвіду майстрів" }
-        ],
-        "items": [
-          {
-            "title": "Власний паркінг у центрі",
-            "text": "Приватна безкоштовна парковка для авто клієнтів безпосередньо перед входом на вул. Шевченка 31А."
-          },
-          {
-            "title": "Free Whiskey Bar & Coffee",
-            "text": "Якісний односолодовий віскі, пиво або свіжозмелена арабіка безкоштовно під час очікування та стрижки."
-          },
-          {
-            "title": "Тату-студія Tattoo Room",
-            "text": "Власна стерильна тату-зона всередині барбершопу. Поєднуйте стрижку із розробкою ескізу чи тату-сеансом."
-          },
-          {
-            "title": "Програма лояльності",
-            "text": "Персональні накопичувальні знижки для постійних відвідувачів та сімейних візитів."
-          }
-        ]
-      },
-      "tattoo": {
-        "kicker": "ОКРЕМА ЗОНА У СТАЙЛІ BARBERKING",
-        "title": "Художнє татуювання у Tattoo Room",
-        "subtitle": "Спеціально обладнаний кабінет із повною стерильністю, одноразовими розхідниками та досвідченими тату-художниками.",
-        "feature1": "Індивідуальна розробка та адаптація ескізу",
-        "feature2": "Перекриття (Cover-up) та корекція старих тату",
-        "feature3": "Сертифіковані пігменти преміум-класу USA",
-        "cta": "Консультація тату-майстра"
-      },
-      "team": {
-        "kicker": "НАША КОМАНДА · МАЙСТРИ МІСТА",
-        "title": "Майстри, яким довіряють свій стиль",
-        "subtitle": "Кожен барбер має сотні підтверджених відгуків від постійних гостей у Львові.",
-        "members": [
+      "mastersSection": {
+        "kicker": "КОМАНДА ТА РЕМЕСЛО",
+        "title": "Кваліфіковані барбери з відкритим портфоліо",
+        "subtitle": "Кожен майстер пройшов атестаційний відбір та працює за класичними стандартами.",
+        "quote": "«Геометрія стрижки та повага до часу гостя — основа нашої роботи щодня.»",
+        "standardBrand": "— Barberking Lviv Standard",
+        "statYear": "Рік заснування",
+        "statHaircuts": "Стрижок виконано",
+        "statGoogle": "Рейтинг Google",
+        "statSterile": "Стерильність",
+        "compositionBadge": "ЕКСПЕРТНИЙ СТАНДАРТ",
+        "compositionSub": "ТОЧНІСТЬ ТА ТРАДИЦІЯ",
+        "qualificationKicker": "РЕГЛАМЕНТ КВАЛІФІКАЦІЇ",
+        "qualificationTitle": "Безперервна атестація та відпрацьовані рухи",
+        "qualificationDesc": "Кожен барбер проходить 3-етапний відбір перед допуском до робочого крісла. Ми приділяємо увагу не лише геометрії зрізу, а й точній комунікації та комфорту гостя.",
+        "consultationCta": "Консультація старшого барбера",
+        "team": [
           {
             "name": "МАТЛАБ",
             "role": "GRAND BARBER",
-            "exp": "Досвід 7+ років",
-            "spec": "Складні стрижки, точний геометрічний Fade та королівське гоління."
+            "exp": "5+ років досвіду",
+            "spec": "Експерт зі складних фейдів, точної геометрії бороди та розпарювання."
           },
           {
             "name": "КИРИЛО",
             "role": "AMBASSADOR",
-            "exp": "Досвід 8+ років",
-            "spec": "Амбасадор бренду. Моделювання складних борід та авторських форм."
+            "exp": "8+ років досвіду",
+            "spec": "Амбасадор бренду, топрейтинг за відгуками, класичне королівське гоління."
           },
           {
             "name": "СЕРГІЙ",
             "role": "GRAND BARBER",
-            "exp": "Досвід 6+ років",
-            "spec": "Класичні чоловічі силуети та дитячі стрижки будь-якої складності."
+            "exp": "6 років досвіду",
+            "spec": "Спеціаліст із поєднання класичних форм та сучасних текстурних стрижок."
           },
           {
             "name": "ЄГОР",
             "role": "BARBER",
-            "exp": "Досвід 4+ роки",
-            "spec": "Сучасні текстурні стрижки, укладки та камуфляж сивини."
+            "exp": "3 роки досвіду",
+            "spec": "Майстер стрижок машинкою, дитячих зачісок та камуфляжу сивини."
           }
         ]
       },
-      "reviews": {
-        "kicker": "РЕАЛЬНИЙ ДОСВІД ГОСТЕЙ · GOOGLE REVIEWS",
-        "title": "4.9 rating на основі 674 відгуків",
-        "subtitle": "Відгуки чоловіків, які обирають Barberking у Львові щомісяця.",
-        "googleProof": "Перевірений профіль Google Business · 674 відгуки",
-        "featuredQuote": "«Матлаб робить Fade з хірургічною точністю. Паркінг прямо перед входом вирішує всі питання з авто в центрі.»",
-        "featuredAuthor": "Олександр М. — постійний гість з 2021 року",
-        "list": [
+      "tattooSection": {
+        "kicker": "СПЕЦІАЛЬНА ОПЦІЯ У ЛЬВОВІ",
+        "title": "Власна Tattoo Room безпосередньо у барбершопі",
+        "subtitle": "Поєднуйте догляд за стрижкою із нанесенням або корекцією татуювання.",
+        "feature1Title": "Персональні ескізи",
+        "feature1Desc": "Розробка рисунка відповідно до вашого задуму та анатомічних особливостей.",
+        "feature2Title": "Перекриття та корекція (Cover-Up)",
+        "feature2Desc": "Реставрація давніх татуювань або перекриття неякісних попередніх робіт.",
+        "feature3Title": "Стерильність за стандартом",
+        "feature3Desc": "Одноразові розхідні матеріали, бар'єрний захист та обробка інструментів.",
+        "ctaTattoo": "Записатися на консультацію",
+        "consultPrefix": "Консультація:",
+        "imageAlt": "Tattoo Room в Barberking",
+        "imageKicker": "TATTOO ROOM @ BARBERKING",
+        "imageSub": "Запис на розробку індивідуального ескізу та корекцію відкритий."
+      },
+      "amenitiesSection": {
+        "kicker": "КОМФОРТ ТА ОРГАНІЗАЦІЯ",
+        "title": "Чому чоловіки обирають Barberking на Шевченка 31А",
+        "subtitle": "Ми організували простір, де зручно поєднати догляд та відпочинок.",
+        "items": [
           {
-            "name": "Олександр Марченков",
-            "date": "Тиждень тому",
-            "rating": 5,
-            "text": "Барбершоп у районі Шевченка з власним паркінгом — це величезний плюс. Матлаб робить Fade дуже якісно, а віскі на барі завжди доречне."
+            "title": "Власний паркінг",
+            "desc": "Приватна парковка безпосередньо біля входу. Жодного пошуку місць у районі."
           },
           {
-            "name": "Тарас Приходько",
-            "date": "2 тижні тому",
-            "rating": 5,
-            "text": "Ходимо разом із сином 8 років на комплекс Батько+Син до Сергія. Майстер вміє знайти підхід до дитини, стрижка акуратна."
+            "title": "Барне частування",
+            "desc": "Пропонуємо віскі, свіжу каву або чай для кожного гостя без додаткової плати."
           },
           {
-            "name": "Дмитро Яковенко",
-            "date": "Місяць тому",
-            "rating": 5,
-            "text": "Оформлення бороди на високому рівні. Гаряче розпарювання рушником та окантовка — чудовий відпочинок після робочого дня."
+            "title": "3-етапна стерилізація",
+            "desc": "Дезінфекція, ультразвукова чистка та сухожар. Крафт-пакет відкривається при вас."
           },
           {
-            "name": "Ігор Ковальчук",
-            "date": "Місяць тому",
-            "rating": 5,
-            "text": "Зробив не тільки стрижку у Кирила, а й невелике тату в їхній Tattoo Room. Все дуже стерильно та професійно."
+            "title": "Накопичувальні бонуси",
+            "desc": "Персональна програма лояльності для постійних відвідувачів барбершопу."
           }
         ]
       },
-      "faq": {
-        "kicker": "ПОШИРЕНІ ПИТАННЯ ГОСТЕЙ",
+      "portfolioSection": {
+        "kicker": "ГАЛЕРЕЯ РОБІТ",
+        "title": "Результати майстрів без фільтрів",
+        "subtitle": "Реальні роботи із салонного крісла на вул. Шевченка 31А.",
+        "items": [
+          "Класична чоловіча стрижка",
+          "Моделювання бороди та контур",
+          "Інструменти та стайлінг",
+          "Королівське гоління"
+        ],
+        "locationBadge": "Barberking Lviv · Шевченка 31А",
+        "ctaBook": "Записатися на стрижку"
+      },
+      "reviewsSection": {
+        "kicker": "ВІДГУКИ ГОСТЕЙ",
+        "title": "4.9 / 5.0 у Google Maps на основі 674 відгуків",
+        "subtitle": "Гості відзначають пунктуальність, майстерність та спокійну атмосферу.",
+        "googleNote": "Підтверджений рейтинг Google Maps",
+        "googleVerified": "4.9 / 5.0 · Google Maps Verified",
+        "cardMapNote": "Google Maps Review",
+        "cardConfirmed": "Підтверджено",
+        "readAllBtn": "Читати всі 674 відгуки в Google Maps",
+        "reviews": [
+          {
+            "name": "Олександр Мельник",
+            "date": "постійний гість з 2021 року",
+            "text": "Зручне місце розташування біля ЖК Семицвіт. Кирило зробив точний фейд і оформив контур бороди. Великий плюс — власна парковка біля дверей.",
+            "rating": 5
+          },
+          {
+            "name": "Андрій Ковальчук",
+            "date": "візити щомісяця",
+            "text": "Відвідую Матлаба вже тривалий час. Завжди точне дотримання графіку запису, якісна кава та акуратна робота з ножицями.",
+            "rating": 5
+          },
+          {
+            "name": "Дмитро Сидоренко",
+            "date": "гоління та стрижка",
+            "text": "Королівське гоління виконано з дотриманням ритуалу. Розпарювання рушником і відсутність подразнення після небезпечної бритви.",
+            "rating": 5
+          },
+          {
+            "name": "Володимир Гнатюк",
+            "date": "комплексний візит",
+            "text": "Записався із сином за програмою Батько+Син. Обом зробили стрижки за 1,5 години без затримок. Дякую команді за сервіс.",
+            "rating": 5
+          }
+        ]
+      },
+      "faqSection": {
+        "kicker": "ВІДПОВІДІ НА ЗАПИТАННЯ",
         "title": "Все, що варто знати перед візитом",
         "items": [
           {
-            "q": "Скільки часу займає чоловіча стрижка?",
-            "a": "Класична чоловіча стрижка триває 45 хвилин. Комплекс із бородою — 75 хвилин. Ви можете точно спланувати свій час."
+            "q": "Як часто рекомендовано оновлювати стрижку?",
+            "a": "Для підтримки чіткого фейду та лінії бороди оптимальний інтервал становить 2–3 тижні. Для класичних стрижок середньої довжини — раз на 4 тижні."
           },
           {
-            "q": "Чи справді паркінг біля барбершопу безкоштовний?",
-            "a": "Так, безпосередньо біля входу на вул. Шевченка 31А розташований приватний безкоштовний паркінг для авто наших клієнтів."
+            "q": "Чи обов'язковий попередній онлайн-запис?",
+            "a": "Рекомендуємо онлайн-запис за 1–2 дні, щоб обрати зручний час та майстра. За наявності вільних вікон ми також приймаємо гостей без запису."
           },
           {
-            "q": "Як працює онлайн-запис?",
-            "a": "Ви обираєте послугу, майстра та зручний час за 30 секунд. Підтвердження візиту одразу надходить у SMS."
+            "q": "Де знаходиться паркінг і яка його вартість?",
+            "a": "Приватний майданчик для паркування розташований безпосередньо біля входу на вул. Шевченка 31А і є безоплатним для всіх наших гостей."
           },
           {
-            "q": "Що входить у безкоштовний бар?",
-            "a": "Кожен гість може безкоштовно пригоститися односолодовим віскі, холодним пивом, зерновою кавою або чаєм."
+            "q": "Як організовано стерилізацію інструментів?",
+            "a": "Інструменти проходять ультразвукову чистку, занурення у дезінфікуючий розчин та обробку у сухожаровій шафі. Крафт-пакет розкривається при вас."
           },
           {
-            "q": "Чи є у вас подарункові сертифікати?",
-            "a": "Так, виготовляємо фірмові сертифікати на будь-яку послугу або суму від 500 грн."
-          },
-          {
-            "q": "Чи можна поєднати стрижку та тату-сеанс?",
-            "a": "Так, ви можете заздалегідь узгодити час і пройти обидві процедури під час одного візиту в Tattoo Room."
+            "q": "Чи входять напої у вартість процедур?",
+            "a": "Так, натуральна кава, віскі, чай та вода є безоплатним частуванням для кожного відвідувача."
           }
         ]
       },
-      "certificates": {
-        "kicker": "ПОДАРУНОК З ЧОЛОВІЧИМ ХАРАКТЕРОМ",
-        "title": "Подарункові сертифікати Barberking",
-        "subtitle": "Даруйте не просто послугу, а відпочинок, якісний догляд та стиль.",
-        "amountTitle": "Оберіть номінал сертифіката:",
-        "buyButton": "Замовити сертифікат"
-      },
-      "location": {
-        "kicker": "ЛОКАЦІЯ ТА КОНТАКТИ · ЛЬВІВ",
-        "title": "Чекаємо на вул. Шевченка 31А",
-        "subtitle": "Зручна локація поруч із ЖК Семицвіт та центром міста з власним під'їздом та парковкою.",
-        "addressLabel": "Адреса:",
-        "addressValue": "м. Львів, вул. Шевченка 31А (поруч з ЖК Семицвіт)",
-        "phoneLabel": "Телефон для запису:",
-        "phoneValue": "+380 66 263 6339",
-        "hoursLabel": "Графік работы:",
-        "hoursValue": "Без вихідних з 10:00 до 21:00",
-        "openMaps": "Відкрити в Google Maps"
-      },
-      "ctaBanner": {
-        "kicker": "ШВИДКИЙ ОНЛАЙН-ЗАПИС",
-        "title": "Оберіть зручний час для вашого візиту",
-        "subtitle": "Бронюйте час онлайн за 30 секунд. Паркомісце та чашка холодного віскі або кави вже чекають на вас.",
-        "button": "Записатися зараз",
-        "trustLine": "Підтвердження в SMS · Скасування без штрафів · Безкоштовний паркінг"
-      },
-      "bookingModal": {
-        "title": "Онлайн-запис у Barberking Львів",
-        "subtitle": "Заповніть форму та отримайте SMS-підтвердження візиту",
-        "namePlaceholder": "Ваше ім'я",
-        "phonePlaceholder": "+380 XX XXX XX XX",
-        "serviceSelect": "Оберіть послугу",
-        "barberSelect": "Оберіть майстра (необов'язково)",
+      "bookingForm": {
+        "kicker": "ОНЛАЙН-БРОНЮВАННЯ",
+        "title": "Оберіть зручний час та вашого майстра",
+        "subtitle": "Заповніть форму — ми зателефонуємо протягом 5 хвилин для підтвердження візиту.",
+        "hoursBoxTitle": "ГРАФІК РОБОТИ",
+        "hoursBoxVal": "Пн–Нд: 10:00 – 21:00",
+        "locationBoxTitle": "ЛОКАЦІЯ",
+        "locationBoxVal": "м. Львів, вул. Шевченка 31А · Паркінг",
+        "nameLabel": "Ваше ім'я",
+        "namePlaceholder": "Олександр",
+        "phoneLabel": "Номер телефону",
+        "phonePlaceholder": "+380 66 000 0000",
+        "serviceLabel": "Обрана послуга",
+        "servicesOpt": [
+          "Професійна чоловіча стрижка (від 600 грн)",
+          "Професійна стрижка + борода (від 950 грн)",
+          "Королівське гоління (від 400 грн)",
+          "Стрижка бороди (від 450 грн)",
+          "Комплекс «Батько + Син» (від 1050 грн)",
+          "Tattoo Room — Консультація"
+        ],
         "dateLabel": "Бажана дата та час",
-        "submit": "Підтвердити запис",
-        "successMsg": "Дякуємо! Ваш запис прийнято. Ми надішлемо підтвердження в SMS."
+        "notesLabel": "Коментар до запису (необов'язково)",
+        "notesPlaceholder": "Потрібен паркінг або конкретний барбер",
+        "submitBtn": "Підтвердити онлайн-запис",
+        "successTitle": "Запис прийнято!",
+        "successDesc": "Дякуємо. Адміністратор зателефонує вам для підтвердження обраного часу.",
+        "newBookingBtn": "Створити новий запис",
+        "quickCallPrefix": "Телефон для швидкого запису:",
+        "cancelNote": "* Скасування візиту за 2 години"
+      },
+      "contactsSection": {
+        "kicker": "ЛОКАЦІЯ ТА КОНТАКТИ",
+        "title": "Запрошуємо на вул. Шевченка 31А у Львові",
+        "addressTitle": "Адреса локації",
+        "addressVal": "м. Львів, вул. Шевченка, 31А (ЖК Семицвіт)",
+        "addressSub": "Приватний майданчик паркінгу біля входу",
+        "phoneTitle": "Телефон для довідок",
+        "phoneVal": "+380 66 263 6339",
+        "hoursTitle": "Режим роботи",
+        "hoursVal": "Понеділок – Неділя: 10:00 – 21:00",
+        "mapsBtn": "Відкрити карту Google Maps",
+        "mapTitle": "Barberking Lviv Map"
       },
       "footer": {
-        "wordmark": "BARBERKING",
-        "desc": "Barberking — чоловічий барбершоп у Львові. Твій стиль, якісний догляд та атмосфера чоловічого клубу.",
+        "desc": "Barberking — чоловічий барбершоп у Львові. Традиції гоління, класичні стрижки, приватний паркінг та Tattoo Room.",
         "quickLinks": "Навігація",
-        "contacts": "Контакти",
-        "legal": "© 2026 Barberking Львів. Всі права захищені.",
-        "brandVoice": "Львівський стиль, чоловічий характер",
+        "navServices": "Послуги та ціни",
+        "navCalculator": "Калькулятор візиту",
+        "navMasters": "Майстри",
+        "navTattoo": "Tattoo Room",
+        "navReviews": "Відгуки Google",
+        "hoursTitle": "Графік та Контакти",
+        "hoursVal": "Щодня: 10:00 – 21:00",
+        "emailVal": "barberking.lv@gmail.com",
+        "socialTitle": "Соціальні Мережі",
+        "rights": "Всі права захищені.",
+        "voice": "Створено для чоловіків, які цінують свій час та регламент.",
         "developer": "Розроблено Студія Тест"
+      }
+    },
+    "en": {
+      "meta": {
+        "title": "Barberking — Men's Barbershop in Lviv | Shevchenka St 31A",
+        "description": "Modern men's barbershop in Lviv. Haircuts from 600 UAH, royal straight razor shave, Tattoo Room and private parking."
+      },
+      "common": {
+        "bookOnline": "Book Online",
+        "bookAction": "Book Now",
+        "quickCall": "Call Now",
+        "address": "31A Shevchenka St, Lviv",
+        "addressShort": "Shevchenka 31A",
+        "hours": "Daily 10:00 AM – 9:00 PM",
+        "rating": "4.9 / 5.0 (674 Google reviews)",
+        "currency": "UAH",
+        "from": "from",
+        "phone": "+380 66 263 6339",
+        "workingHours": "10:00 AM – 9:00 PM",
+        "freeParking": "Free Guest Parking",
+        "freeDrinks": "Complimentary Whiskey & Coffee"
+      },
+      "nav": {
+        "services": "Services & Prices",
+        "calculator": "Calculator",
+        "masters": "Barbers",
+        "tattoo": "Tattoo Room",
+        "amenities": "Amenities",
+        "portfolio": "Portfolio",
+        "reviews": "Reviews",
+        "faq": "FAQ",
+        "contacts": "Contacts"
+      },
+      "header": {
+        "brandSub": "BARBERSHOP LVIV · 31A SHEVCHENKA ST",
+        "switchLangAria": "Switch Language",
+        "toggleMenuAria": "Toggle Mobile Menu",
+        "closeMenu": "CLOSE",
+        "openMenu": "MENU",
+        "mobileFooterNote": "Daily 10:00 AM – 9:00 PM · Private Parking"
+      },
+      "hero": {
+        "kicker": "ESTABLISHED 2019 · LVIV, 31A SHEVCHENKA ST",
+        "title1": "Precision Haircut & Royal Straight Razor Shave",
+        "titleAccent": "by classic standards",
+        "subtitle": "High-precision barbering, private guest parking at the door, whiskey bar, and Tattoo Room in Semycvit complex.",
+        "badgeParking": "Private Parking at Entrance",
+        "subLocation": "31A SHEVCHENKA ST · SEMYCVIT",
+        "badgeDrinks": "WHISKEY BAR & COFFEE INCLUDED",
+        "ctaBook": "Select Time & Book Online",
+        "ctaServices": "View Price List",
+        "hoursLabel": "HOURS",
+        "addressLabel": "ADDRESS",
+        "addressValue": "Shevchenka 31A",
+        "ratingLabel": "RATING",
+        "ratingValue": "4.9 / 5.0 Google",
+        "scrollCue": "SCROLL"
+      },
+      "socialProof": {
+        "tickerItems": [
+          "BARBERSHOP AT SHEVCHENKA 31A",
+          "674 GOOGLE MAPS REVIEWS",
+          "PRIVATE GUEST PARKING",
+          "COMPLIMENTARY WHISKEY & COFFEE",
+          "IN-HOUSE TATTOO ROOM",
+          "3-STAGE TOOL STERILIZATION"
+        ]
+      },
+      "servicesSection": {
+        "kicker": "SERVICES & PRICING",
+        "title": "Transparent prices with zero hidden fees",
+        "subtitle": "Select individual procedures or combo packages for efficient visits.",
+        "includeWash": "Includes double wash & styling finish",
+        "footnote": "* All services include double hair wash, line edging, and professional styling finish.",
+        "bannerAlt": "Barberking Lviv Price List",
+        "bannerKicker": "LVIV LOCATION · SEMYCVIT COMPLEX",
+        "bannerText": "31A Shevchenka St — space for men's style, relaxation and precise grooming.",
+        "tabs": {
+          "all": "All Services",
+          "hair": "Haircuts",
+          "shave": "Beard & Shave",
+          "combo": "Combo Packages",
+          "care": "Care & Camouflage"
+        },
+        "items": [
+          {
+            "id": "1",
+            "name": "Men's Classic Haircut",
+            "price": "from 600 UAH",
+            "duration": "45 min",
+            "desc": "Precision haircut tailored to head shape and hair texture. Includes double wash, light massage, and styling.",
+            "tag": "CLASSIC"
+          },
+          {
+            "id": "2",
+            "name": "Haircut + Beard Styling Combo",
+            "price": "from 950 UAH",
+            "duration": "75 min",
+            "desc": "Complete haircut combined with beard modeling, hot towel steaming, and straight razor line refinement.",
+            "popular": true,
+            "tag": "TOP COMBO"
+          },
+          {
+            "id": "3",
+            "name": "Royal Straight-Razor Shave",
+            "price": "from 400 UAH",
+            "duration": "45 min",
+            "desc": "Traditional straight razor shave ritual. Triple hot towel steaming with essential oils, cool compress, and balm.",
+            "tag": "RITUAL"
+          },
+          {
+            "id": "4",
+            "name": "Beard & Moustache Trim",
+            "price": "from 450 UAH",
+            "duration": "35 min",
+            "desc": "Beard modeling, line cleanup, and conditioning with organic beard oil.",
+            "tag": "PRECISION"
+          },
+          {
+            "id": "5",
+            "name": "Clipper Haircut",
+            "price": "from 450 UAH",
+            "duration": "30 min",
+            "desc": "Clean clipper cut using multiple guards with hairline edging and hair wash included.",
+            "tag": "EXPRESS"
+          },
+          {
+            "id": "6",
+            "name": "Father + Son Combo",
+            "price": "from 1050 UAH",
+            "duration": "90 min",
+            "desc": "Parallel or sequential haircuts for father and son in a comfortable atmosphere with drinks.",
+            "popular": true,
+            "tag": "FAMILY SET"
+          },
+          {
+            "id": "7",
+            "name": "Grey Hair/Beard Camouflage",
+            "price": "from 400 UAH",
+            "duration": "30 min",
+            "desc": "Subtle hair blending treatment that conceals grey hair while preserving natural tone.",
+            "tag": "TONING"
+          },
+          {
+            "id": "8",
+            "name": "Hair Styling & Finish",
+            "price": "from 250 UAH",
+            "duration": "20 min",
+            "desc": "Professional styling using matte clays and pomades for a neat presentation.",
+            "tag": "FINISH"
+          }
+        ]
+      },
+      "calculatorSection": {
+        "kicker": "INTERACTIVE CALCULATOR",
+        "title": "Calculate your visit cost in 10 seconds",
+        "subtitle": "Select services and master qualification level for precise price calculation.",
+        "selectServices": "1. Select Procedures",
+        "selectMin1": "Select 1+ procedures",
+        "tagYes": "YES",
+        "selectMaster": "2. Barber Level",
+        "expCoefficient": "Experience Multiplier",
+        "summaryBadge": "VISIT SUMMARY",
+        "totalEstimate": "Calculated Total:",
+        "masterLabel": "Master:",
+        "selectedList": "Selected List:",
+        "parkingNote": "Parking & bar drinks included",
+        "btnLockPrice": "Lock Price & Book Time"
+      },
+      "mastersSection": {
+        "kicker": "TEAM & CRAFT",
+        "title": "Qualified barbers with verified portfolios",
+        "subtitle": "Every barber adheres strictly to traditional barbering standards.",
+        "quote": "«Line geometry and respect for the guest's schedule guide our work every day.»",
+        "standardBrand": "— Barberking Lviv Standard",
+        "statYear": "Established Year",
+        "statHaircuts": "Haircuts Done",
+        "statGoogle": "Google Rating",
+        "statSterile": "Sterility",
+        "compositionBadge": "EXPERT STANDARD",
+        "compositionSub": "PRECISION & TRADITION",
+        "qualificationKicker": "QUALIFICATION REGULATIONS",
+        "qualificationTitle": "Continuous assessment and refined technique",
+        "qualificationDesc": "Each barber passes a rigorous 3-stage selection before working at the chair. We focus on haircut geometry, precise communication, and guest comfort.",
+        "consultationCta": "Senior Barber Consultation",
+        "team": [
+          {
+            "name": "MATLAB",
+            "role": "GRAND BARBER",
+            "exp": "5+ years exp",
+            "spec": "Expert in complex fades, scissor technique, and beard geometry."
+          },
+          {
+            "name": "KYRYLO",
+            "role": "AMBASSADOR",
+            "exp": "8+ years exp",
+            "spec": "Brand Ambassador, top customer rating, master of royal straight razor shave."
+          },
+          {
+            "name": "SERHIY",
+            "role": "GRAND BARBER",
+            "exp": "6 years exp",
+            "spec": "Specialist in combining traditional shapes with modern textured cuts."
+          },
+          {
+            "name": "YEHOR",
+            "role": "BARBER",
+            "exp": "3 years exp",
+            "spec": "Master of precise clipper cuts, kids hairstyles, and grey camouflage."
+          }
+        ]
+      },
+      "tattooSection": {
+        "kicker": "SPECIAL OPTION IN LVIV",
+        "title": "In-house Tattoo Room inside the barbershop",
+        "subtitle": "Combine your grooming visit with getting a new tattoo or updating existing ink.",
+        "feature1Title": "Custom Sketches",
+        "feature1Desc": "Custom artwork tailored to your anatomy and preference.",
+        "feature2Title": "Cover-Up & Touch-Ups",
+        "feature2Desc": "Restoration of old tattoos or cover-up of previous work.",
+        "feature3Title": "Medical Grade Hygiene",
+        "feature3Desc": "Single-use disposable consumables, barrier protection, and autoclave processing.",
+        "ctaTattoo": "Book Artist Consultation",
+        "consultPrefix": "Consultation:",
+        "imageAlt": "Tattoo Room in Barberking",
+        "imageKicker": "TATTOO ROOM @ BARBERKING",
+        "imageSub": "Bookings for custom sketches and corrections are open."
+      },
+      "amenitiesSection": {
+        "kicker": "AMENITIES & SETUP",
+        "title": "Why guests select Barberking at Shevchenka 31A",
+        "subtitle": "A structured environment combining efficiency and relaxation.",
+        "items": [
+          {
+            "title": "Private Parking",
+            "desc": "Private guest parking right at the entrance. Zero time lost searching for spots."
+          },
+          {
+            "title": "Complimentary Bar",
+            "desc": "Enjoy single malt whiskey, fresh espresso, or tea without extra charge."
+          },
+          {
+            "title": "3-Stage Sterilization",
+            "desc": "Disinfection, ultrasonic cleaning, and dry heat processing. Pouches opened in front of you."
+          },
+          {
+            "title": "Loyalty Program",
+            "desc": "Personal bonus system for regular visitors."
+          }
+        ]
+      },
+      "portfolioSection": {
+        "kicker": "GALLERY OF WORKS",
+        "title": "Unedited results from our chairs",
+        "subtitle": "Real haircuts and beard trims done at 31A Shevchenka St.",
+        "items": [
+          "Classic Men's Haircut",
+          "Beard Styling & Contouring",
+          "Tools & Styling Products",
+          "Royal Straight Razor Shave"
+        ],
+        "locationBadge": "Barberking Lviv · Shevchenka 31A",
+        "ctaBook": "Book a Haircut"
+      },
+      "reviewsSection": {
+        "kicker": "GUEST REVIEWS",
+        "title": "4.9 / 5.0 on Google Maps based on 674 reviews",
+        "subtitle": "Punctuality, precision, and calm atmosphere confirmed by guests.",
+        "googleNote": "Verified Google Maps Rating",
+        "googleVerified": "4.9 / 5.0 · Google Maps Verified",
+        "cardMapNote": "Google Maps Review",
+        "cardConfirmed": "Verified",
+        "readAllBtn": "Read all 674 reviews on Google Maps",
+        "reviews": [
+          {
+            "name": "Oleksandr Melnyk",
+            "date": "regular guest since 2021",
+            "text": "Convenient location near Semycvit complex. Kyrylo made a precise fade and clean beard edging. Huge benefit having guest parking right at the door.",
+            "rating": 5
+          },
+          {
+            "name": "Andriy Kovalchuk",
+            "date": "monthly visits",
+            "text": "Visiting Matlab for a long time. Strict schedule adherence, great coffee, and clean scissor technique.",
+            "rating": 5
+          },
+          {
+            "name": "Dmytro Sydorenko",
+            "date": "shave & haircut",
+            "text": "Royal shave performed according to traditional ritual. Hot towel treatment and zero skin irritation afterwards.",
+            "rating": 5
+          },
+          {
+            "name": "Volodymyr Hnatyuk",
+            "date": "combo visit",
+            "text": "Booked Father+Son package. Both haircuts completed in 1.5 hours without delays. Great service.",
+            "rating": 5
+          }
+        ]
+      },
+      "faqSection": {
+        "kicker": "FREQUENTLY ASKED QUESTIONS",
+        "title": "Everything you need to know before visiting",
+        "items": [
+          {
+            "q": "How often should I refresh my haircut?",
+            "a": "To maintain a clean fade and beard contours, we recommend visiting every 2–3 weeks. For classic medium length styles, every 4 weeks."
+          },
+          {
+            "q": "Is online booking mandatory?",
+            "a": "We recommend booking online 1–2 days ahead to reserve your preferred time slot and barber. Walk-ins are accepted if slots are available."
+          },
+          {
+            "q": "Where is the parking lot located and is it free?",
+            "a": "Our private guest parking lot is located right in front of the entrance at 31A Shevchenka St and is 100% free for all guests."
+          },
+          {
+            "q": "How is tool sterilization handled?",
+            "a": "Tools undergo ultrasonic cleaning, disinfectant bath, and high-temperature dry heat sterilization. Pouches are unsealed in your presence."
+          },
+          {
+            "q": "Are drinks included in the service fee?",
+            "a": "Yes, natural espresso, whiskey, tea, and soft drinks are complimentary for every guest."
+          }
+        ]
+      },
+      "bookingForm": {
+        "kicker": "ONLINE RESERVATION",
+        "title": "Select preferred time and your barber",
+        "subtitle": "Fill in the form — we will call within 5 minutes to confirm your appointment.",
+        "hoursBoxTitle": "OPENING HOURS",
+        "hoursBoxVal": "Mon–Sun: 10:00 AM – 9:00 PM",
+        "locationBoxTitle": "LOCATION",
+        "locationBoxVal": "31A Shevchenka St, Lviv · Parking",
+        "nameLabel": "Your Name",
+        "namePlaceholder": "Oleksandr",
+        "phoneLabel": "Phone Number",
+        "phonePlaceholder": "+380 66 000 0000",
+        "serviceLabel": "Selected Service",
+        "servicesOpt": [
+          "Professional Men's Haircut (from 600 UAH)",
+          "Haircut + Beard Combo (from 950 UAH)",
+          "Royal Straight-Razor Shave (from 400 UAH)",
+          "Beard Trim (from 450 UAH)",
+          "Father + Son Combo (from 1050 UAH)",
+          "Tattoo Room — Consultation"
+        ],
+        "dateLabel": "Preferred Date & Time",
+        "notesLabel": "Notes (Optional)",
+        "notesPlaceholder": "Parking needed or specific barber preference",
+        "submitBtn": "Confirm Online Booking",
+        "successTitle": "Reservation Received!",
+        "successDesc": "Thank you. Our administrator will call you shortly to confirm.",
+        "newBookingBtn": "Create New Booking",
+        "quickCallPrefix": "Quick booking phone:",
+        "cancelNote": "* Cancellation 2 hours prior"
+      },
+      "contactsSection": {
+        "kicker": "LOCATION & CONTACTS",
+        "title": "We welcome you at 31A Shevchenka St in Lviv",
+        "addressTitle": "Location Address",
+        "addressVal": "31A Shevchenka St, Lviv (Semycvit complex)",
+        "addressSub": "Private guest parking lot at the entrance",
+        "phoneTitle": "Phone Number",
+        "phoneVal": "+380 66 263 6339",
+        "hoursTitle": "Opening Hours",
+        "hoursVal": "Monday – Sunday: 10:00 AM – 9:00 PM",
+        "mapsBtn": "Open in Google Maps",
+        "mapTitle": "Barberking Lviv Map"
+      },
+      "footer": {
+        "desc": "Barberking — Men's barbershop in Lviv. Classic straight razor shave, precise haircuts, private parking, and Tattoo Room.",
+        "quickLinks": "Navigation",
+        "navServices": "Services & Prices",
+        "navCalculator": "Calculator",
+        "navMasters": "Barbers",
+        "navTattoo": "Tattoo Room",
+        "navReviews": "Google Reviews",
+        "hoursTitle": "Hours & Contacts",
+        "hoursVal": "Daily: 10:00 AM – 9:00 PM",
+        "emailVal": "barberking.lv@gmail.com",
+        "socialTitle": "Social Media",
+        "rights": "All rights reserved.",
+        "voice": "Built for men who value their time and schedule.",
+        "developer": "Developed by Studio Test"
       }
     }
   }

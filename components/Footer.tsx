@@ -6,103 +6,102 @@ export default function Footer() {
   const { t } = useLocale();
 
   return (
-    <footer className="bg-primary border-t border-surface-border text-text-muted pt-16 pb-8 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-16">
-          {/* Col 1 */}
+    <footer className="bg-bg-dark border-t border-border-gold text-text-muted py-16 relative overflow-hidden">
+      {/* Giant Full-Width Brand Wordmark Bleeding Off Edge (7 & 8-Layer Compliance) */}
+      <div
+        aria-hidden="true"
+        className="w-full overflow-hidden select-none pointer-events-none border-b border-border-dark/60 pb-4 mb-12"
+      >
+        <span className="font-display font-black text-[13vw] text-accent/10 leading-none whitespace-nowrap block tracking-tighter">
+          BARBERKING LVIV
+        </span>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-border-dark">
+          {/* Col 1: Brand */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center text-primary font-black text-xl">
-                BK
-              </div>
-              <span className="font-display font-extrabold text-xl tracking-wider text-white uppercase">
-                BARBERKING
-              </span>
-            </div>
-            <p className="text-xs leading-relaxed text-text-muted">
-              {String(t("footer.desc"))}
+            <span className="font-display font-extrabold text-2xl tracking-wider text-white block">
+              BARBERKING
+            </span>
+            <p className="text-xs leading-relaxed">
+              {t("footer.desc")}
             </p>
-            <div className="text-xs text-accent font-bold uppercase tracking-wider pt-2">
-              {String(t("footer.brandVoice"))}
+            <div className="text-xs text-accent font-bold font-mono">
+              {t("common.address")}
             </div>
           </div>
 
-          {/* Col 2 */}
+          {/* Col 2: Navigation */}
           <div>
-            <h4 className="font-display font-bold uppercase text-white text-xs tracking-wider mb-4">
-              {String(t("footer.quickLinks"))}
+            <h4 className="text-xs font-bold text-white uppercase tracking-wider font-display mb-4">
+              {t("footer.quickLinks")}
             </h4>
-            <ul className="space-y-2.5 text-xs">
-              <li><a href="#services" className="hover:text-accent transition-colors">{String(t("nav.services"))}</a></li>
-              <li><a href="#calculator" className="hover:text-accent transition-colors">{String(t("nav.calculator"))}</a></li>
-              <li><a href="#advantages" className="hover:text-accent transition-colors">{String(t("nav.advantages"))}</a></li>
-              <li><a href="#tattoo" className="hover:text-accent transition-colors">{String(t("nav.tattoo"))}</a></li>
-              <li><a href="#team" className="hover:text-accent transition-colors">{String(t("nav.team"))}</a></li>
-              <li><a href="#reviews" className="hover:text-accent transition-colors">{String(t("nav.reviews"))}</a></li>
+            <ul className="space-y-2.5 text-xs font-display">
+              <li><a href="#services" className="hover:text-accent transition-colors py-1 inline-block">{t("footer.navServices")}</a></li>
+              <li><a href="#calculator" className="hover:text-accent transition-colors py-1 inline-block">{t("footer.navCalculator")}</a></li>
+              <li><a href="#masters" className="hover:text-accent transition-colors py-1 inline-block">{t("footer.navMasters")}</a></li>
+              <li><a href="#tattoo" className="hover:text-accent transition-colors py-1 inline-block">{t("footer.navTattoo")}</a></li>
+              <li><a href="#reviews" className="hover:text-accent transition-colors py-1 inline-block">{t("footer.navReviews")}</a></li>
             </ul>
           </div>
 
-          {/* Col 3 */}
+          {/* Col 3: Hours & Phone */}
           <div>
-            <h4 className="font-display font-bold uppercase text-white text-xs tracking-wider mb-4">
-              {String(t("footer.contacts"))}
+            <h4 className="text-xs font-bold text-white uppercase tracking-wider font-display mb-4">
+              {t("footer.hoursTitle")}
             </h4>
-            <ul className="space-y-2.5 text-xs">
-              <li className="text-white font-medium">м. Львів, вул. Шевченка 31А</li>
-              <li><a href="tel:+380662636339" className="hover:text-accent transition-colors">+380 66 263 6339</a></li>
-              <li>barberking.lv@gmail.com</li>
-              <li className="text-accent font-bold pt-2">10:00 – 21:00 Без вихідних</li>
-            </ul>
+            <div className="text-xs space-y-2">
+              <p className="text-white font-medium">{t("footer.hoursVal")}</p>
+              <a href="tel:+380662636339" className="block text-accent font-bold font-display text-sm tabular-nums py-1">
+                +380 66 263 6339
+              </a>
+              <p className="text-[11px] text-text-muted font-mono">{t("footer.emailVal")}</p>
+            </div>
           </div>
 
-          {/* Col 4 */}
+          {/* Col 4: Social Text Links */}
           <div>
-            <h4 className="font-display font-bold uppercase text-white text-xs tracking-wider mb-4">
-              Соціальні мережі
+            <h4 className="text-xs font-bold text-white uppercase tracking-wider font-display mb-4">
+              {t("footer.socialTitle")}
             </h4>
-            <div className="flex flex-col gap-2 text-xs font-bold uppercase tracking-wider">
+            <div className="flex flex-col space-y-2 text-xs font-mono font-bold">
               <a
                 href="https://www.instagram.com/barberking_kh/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-accent transition-colors flex items-center gap-2"
+                className="hover:text-accent transition-colors py-2 min-h-[44px] flex items-center"
               >
-                <span>INSTAGRAM</span>
-                <span>→</span>
+                [ INSTAGRAM ↗ ]
               </a>
               <a
                 href="https://www.facebook.com/BarberKingkh/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-accent transition-colors flex items-center gap-2"
+                className="hover:text-accent transition-colors py-2 min-h-[44px] flex items-center"
               >
-                <span>FACEBOOK</span>
-                <span>→</span>
+                [ FACEBOOK ↗ ]
               </a>
             </div>
           </div>
         </div>
 
-        {/* Legal Row */}
-        <div className="pt-8 border-t border-surface-border/60 flex flex-col sm:flex-row items-center justify-between text-xs gap-4 mb-8">
-          <div>{String(t("footer.legal"))}</div>
+        {/* Legal, Developer & Brand Voice Row */}
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-text-muted gap-4 font-mono">
           <div>
+            © 2026 Barberking Lviv. {t("footer.rights")}
+          </div>
+          <div className="text-text-muted text-center md:text-right">
+            {t("footer.voice")}{" "}
             <a
               href="https://makarich.framer.website"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-text-muted hover:text-accent transition-colors underline underline-offset-4"
+              className="text-accent hover:underline font-bold ml-1 py-2 inline-block"
             >
-              {String(t("footer.developer"))}
+              {t("footer.developer")}
             </a>
           </div>
-        </div>
-
-        {/* Giant Full-Width Brand Wordmark Bleeding Off Bottom Edge */}
-        <div className="pt-4 text-center select-none pointer-events-none aria-hidden overflow-hidden -mb-10">
-          <span className="text-[14vw] font-display font-black uppercase leading-none tracking-widest text-white/[0.04] whitespace-nowrap block">
-            {String(t("footer.wordmark"))}
-          </span>
         </div>
       </div>
     </footer>

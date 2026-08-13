@@ -2,131 +2,142 @@
 
 import { useState } from "react";
 import { useLocale } from "@/lib/i18n";
-import { Reveal, Stagger, StaggerItem } from "@/components/motion";
 
 interface ServiceItem {
   id: string;
-  title: string;
+  name: string;
   price: string;
   duration: string;
+  desc: string;
+  popular?: boolean;
   tag?: string;
-  category: string;
-  isSignature?: boolean;
-  description: string;
 }
 
-export default function Services({ onBookService }: { onBookService: (serviceName: string) => void }) {
-  const { t } = useLocale();
-  const items = (t("services.items") as ServiceItem[]) || [];
-  const [activeCategory, setActiveCategory] = useState<string>("Всі");
+export default function Services() {
+  const { t, getObject } = useLocale();
+  const [activeTab, setActiveTab] = useState<string>("all");
 
-  const categories = ["Всі", "Стрижки", "Борода", "Комплекси", "Догляд"];
+  const items = getObject<ServiceItem[]>("servicesSection.items") || [];
+  const tabKeys = ["all", "hair", "shave", "combo", "care"] as const;
 
-  const filteredItems = activeCategory === "Всі"
-    ? items
-    : items.filter((item) => item.category === activeCategory);
+  const filteredItems = items.filter((item) => {
+    if (activeTab === "all") return true;
+    if (activeTab === "hair") return item.id === "1" || item.id === "5" || item.id === "8";
+    if (activeTab === "shave") return item.id === "3" || item.id === "4";
+    if (activeTab === "combo") return item.id === "2" || item.id === "6";
+    if (activeTab === "care") return item.id === "7";
+    return true;
+  });
 
   return (
-    <section id="services" className="py-24 bg-bg-dark relative overflow-hidden">
-      {/* Background Watermark */}
-      <div className="absolute top-12 left-0 pointer-events-none select-none aria-hidden overflow-hidden">
-        <span className="text-9xl font-display font-black uppercase text-white/[0.02] whitespace-nowrap">
-          SERVICES & PRICING
-        </span>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <Reveal className="text-center max-w-3xl mx-auto mb-12">
-          <span className="text-xs font-extrabold uppercase tracking-widest text-accent mb-3 block">
-            {String(t("services.kicker"))}
+    <section id="services" className="py-24 bg-bg-dark relative scroll-mt-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Heading */}
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <span className="text-xs font-bold text-accent tracking-widest uppercase font-mono block mb-2">
+            {t("servicesSection.kicker")}
           </span>
-          <h2 className="text-3xl sm:text-5xl font-extrabold uppercase tracking-tight text-white mb-4">
-            {String(t("services.title"))}
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-display mb-3">
+            {t("servicesSection.title")}
           </h2>
           <p className="text-text-muted text-sm sm:text-base leading-relaxed">
-            {String(t("services.subtitle"))}
+            {t("servicesSection.subtitle")}
           </p>
-        </Reveal>
+        </div>
 
         {/* Category Filter Tabs */}
-        <Reveal delay={0.2} className="flex flex-wrap justify-center gap-2 mb-12">
-          {categories.map((cat) => (
+        <div className="flex flex-wrap justify-center gap-2 mb-12">
+          {tabKeys.map((key) => (
             <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider border transition-all ${
-                activeCategory === cat
-                  ? "bg-accent text-primary border-accent shadow-lg shadow-accent/20"
-                  : "bg-surface text-text-muted border-surface-border hover:border-text-muted"
+              key={key}
+              onClick={() => setActiveTab(key)}
+              className={`px-5 py-3 rounded-sm text-xs uppercase tracking-wider font-bold transition-all font-display min-h-[44px] ${
+                activeTab === key
+                  ? "bg-gold-gradient text-bg-dark shadow-md"
+                  : "bg-bg-card border border-border-dark text-text-muted hover:border-accent hover:text-accent"
               }`}
             >
-              {cat}
+              {t(`servicesSection.tabs.${key}`)}
             </button>
           ))}
-        </Reveal>
+        </div>
 
-        {/* Editorial Price List Rows */}
-        <Stagger className="space-y-4">
-          {filteredItems.map((item) => (
-            <StaggerItem key={item.id}>
-              <div
-                className={`group p-6 rounded-2xl border transition-all duration-300 flex flex-col md:flex-row md:items-center justify-between gap-6 ${
-                  item.isSignature
-                    ? "bg-surface/90 border-accent/50 shadow-xl shadow-accent/5"
-                    : "bg-surface border-surface-border hover:border-accent/40"
-                }`}
-              >
-                <div className="space-y-2 max-w-2xl flex-1">
-                  <div className="flex flex-wrap items-center gap-3">
-                    <h3 className="text-xl font-display font-extrabold uppercase tracking-wide text-white group-hover:text-accent transition-colors">
-                      {item.title}
-                    </h3>
-                    {item.tag && (
-                      <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-accent/20 text-accent border border-accent/30">
-                        {item.tag}
-                      </span>
-                    )}
-                    <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-surface-border text-text-muted">
-                      {item.duration}
+        {/* Price Row List Layout (Award-winning style with leader lines) */}
+        <div className="max-w-4xl mx-auto space-y-4">
+          {filteredItems.map((service) => (
+            <div
+              key={service.id}
+              className={`p-5 sm:p-6 rounded bg-bg-card/90 border transition-all hover:border-accent group ${
+                service.popular
+                  ? "border-accent bg-gradient-to-r from-bg-card via-primary-light/40 to-bg-card shadow-lg"
+                  : "border-border-dark"
+              }`}
+            >
+              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-2">
+                <div className="flex items-center gap-3">
+                  <h3 className="text-lg sm:text-xl font-bold text-white font-display group-hover:text-accent transition-colors">
+                    {service.name}
+                  </h3>
+                  {service.tag && (
+                    <span className="text-[10px] font-mono font-bold tracking-wider px-2 py-0.5 rounded bg-accent/20 text-accent border border-accent/40">
+                      {service.tag}
                     </span>
-                  </div>
-
-                  <p className="text-sm text-text-muted leading-relaxed">
-                    {item.description}
-                  </p>
+                  )}
                 </div>
 
-                <div className="flex items-center justify-between md:justify-end gap-6 border-t md:border-t-0 border-surface-border/60 pt-4 md:pt-0 shrink-0">
-                  <div className="text-right">
-                    <span className="text-2xl font-display font-black text-accent tracking-tight tabular-nums">
-                      {item.price}
-                    </span>
-                  </div>
+                {/* Dotted leader effect for desktop */}
+                <div className="hidden sm:block flex-1 mx-4 border-b border-dashed border-border-dark opacity-40" />
 
-                  <button
-                    onClick={() => onBookService(item.title)}
-                    className="px-5 py-2.5 bg-accent/10 hover:bg-accent hover:text-primary text-accent border border-accent/30 font-bold text-xs uppercase tracking-wider rounded-lg transition-all active:scale-95 shrink-0 flex items-center gap-1"
-                  >
-                    <span>Записатися</span>
-                    <span>→</span>
-                  </button>
+                <div className="flex items-baseline gap-3 shrink-0">
+                  <span className="text-xs font-mono text-text-muted">{service.duration}</span>
+                  <span className="text-xl font-extrabold text-accent font-display tabular-nums">
+                    {service.price}
+                  </span>
                 </div>
               </div>
-            </StaggerItem>
-          ))}
-        </Stagger>
 
-        {/* Footnote Line & Secondary CTA */}
-        <Reveal delay={0.4} className="mt-12 pt-8 border-t border-surface-border/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-text-muted">
-          <p>{String(t("services.footnote"))}</p>
-          <a
-            href="#calculator"
-            className="text-accent font-bold uppercase tracking-wider hover:underline shrink-0"
-          >
-            Розрахувати свій комплекс у калькуляторі →
-          </a>
-        </Reveal>
+              <p className="text-xs sm:text-sm text-text-muted leading-relaxed max-w-2xl mb-4">
+                {service.desc}
+              </p>
+
+              <div className="flex items-center justify-between pt-2 border-t border-border-dark/40">
+                <span className="text-[10px] font-mono text-text-muted">
+                  {t("servicesSection.includeWash")}
+                </span>
+                <a
+                  href="#booking"
+                  className="text-xs font-bold uppercase tracking-wider text-accent hover:text-white transition-colors inline-flex items-center gap-1 font-display py-2 min-h-[44px]"
+                >
+                  <span>{t("common.bookAction")}</span>
+                  <span>→</span>
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Footnote Line */}
+        <div className="mt-8 text-center text-xs font-mono text-text-muted max-w-3xl mx-auto">
+          {t("servicesSection.footnote")}
+        </div>
+
+        {/* Media Banner Container */}
+        <div className="mt-14 max-w-4xl mx-auto overflow-hidden rounded border border-border-gold/40 relative group">
+          <img
+            src="https://images.pexels.com/photos/7518739/pexels-photo-7518739.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
+            alt={t("servicesSection.bannerAlt")}
+            className="w-full h-52 sm:h-64 object-cover object-top group-hover:scale-105 transition-transform duration-700 filter brightness-85"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-bg-dark via-bg-dark/50 to-transparent flex flex-col justify-end p-6">
+            <span className="text-[10px] font-mono text-accent uppercase tracking-widest block mb-1">
+              {t("servicesSection.bannerKicker")}
+            </span>
+            <p className="text-sm sm:text-base text-white font-bold font-display">
+              {t("servicesSection.bannerText")}
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );

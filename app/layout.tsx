@@ -1,18 +1,18 @@
-import { SmoothScroll } from "@/components/smooth-scroll";
+import { SmoothScroll } from "@/components/motion";
 import type { Metadata } from "next";
 import { LocaleProvider } from "@/lib/i18n";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Barberking — Сучасний чоловічий барбершоп у Львові | Вул. Шевченка 31А",
-  description: "Преміум барбершоп у Львові з власним безкоштовним паркінгом та баром. Стильні чоловічі стрижки, моделювання бороди, королівське гоління та власна тату-студія Tattoo Room.",
-  keywords: ["барбершоп львів", "стрижка чоловіча львів", "борода львів", "barberking львів", "барбер шевченка львів", "королівське гоління львів", "тату салон львів"],
+  title: "Barberking — Королівський барбершоп у Львові | вул. Шевченка 31А",
+  description: "Сучасний чоловічий барбершоп на вул. Шевченка 31А у Львові. Чоловічі стрижки, стрижка бороди, королівське гоління, власна Tattoo Room та безкоштовний паркінг. Запис онлайн!",
+  keywords: ["барбершоп львів", "стрижка чоловіча львів", "стрижка бороди львів", "барбершоп шевченка львів", "тату салон львів", "королівське гоління львів"],
   openGraph: {
-    title: "Barberking — Барбершоп Львів | Власний паркінг та віскі-бар",
-    description: "Чоловічий барбершоп на вул. Шевченка 31А. Рейтинг 4.9/5 на основі 674+ відгуків. Записуйтесь онлайн зараз!",
+    title: "Barberking — Королівський барбершоп у Львові",
+    description: "Класичний барберинг, королівське гоління, Tattoo Room та безкоштовний віскі-бар. Записуйтесь онлайн за 30 секунд!",
     type: "website",
     locale: "uk_UA",
-    url: "https://lviv.bking.com.ua/",
+    siteName: "Barberking Lviv",
   },
   icons: {
     icon: "/icon.svg",
@@ -20,18 +20,57 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BarberShop",
+    "name": "Barberking Lviv",
+    "image": "https://lviv.bking.com.ua/wp-content/themes/bking/images/price-banner.jpg",
+    "@id": "https://lviv.bking.com.ua",
+    "url": "https://lviv.bking.com.ua",
+    "telephone": "+380662636339",
+    "priceRange": "250 UAH - 950 UAH",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "вул. Шевченка, 31А",
+      "addressLocality": "Львів",
+      "postalCode": "79000",
+      "addressCountry": "UA"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 49.8452,
+      "longitude": 24.0158
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "10:00",
+        "closes": "21:00"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "674"
+    }
+  };
+
   return (
-    <html lang="uk">
+    <html lang="uk" className="dark scroll-smooth">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Rubik:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
           rel="stylesheet"
         />
-              <script type="application/ld+json">{"[{\"@context\":\"https://schema.org\",\"@type\":\"HairSalon\",\"name\":\"Barberking - Барбершоп Львів\",\"description\":\"Барбершоп BarberKing у Львові: чоловіча стрижка, борода, гоління небезпечною бритвою. Зручний онлайн-запис, підбір стилю та чіткі контури. Адреса: вул. Шевченка 31. ☎️ 066-263-63-39.\",\"url\":\"https://lviv.bking.com.ua/\",\"telephone\":[\"+380 66 263 6339\"],\"email\":\"barberking.lv@gmail.com\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"Shevchenka St, 31, Lviv, Lviv Oblast, Ukraine, 79000\",\"addressLocality\":\"Львів\",\"addressCountry\":\"UA\"},\"sameAs\":[\"https://www.facebook.com/BarberKingkh/\",\"https://www.instagram.com/barberking_kh/\"],\"employee\":[{\"@type\":\"Person\",\"name\":\"МАТЛАБ\",\"jobTitle\":\"GRAND BARBER\"},{\"@type\":\"Person\",\"name\":\"КИРИЛО\",\"jobTitle\":\"AMBASSADOR\"},{\"@type\":\"Person\",\"name\":\"СЕРГІЙ\",\"jobTitle\":\"GRAND BARBER\"},{\"@type\":\"Person\",\"name\":\"ЄГОР\"}],\"makesOffer\":[{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Професійна чоловіча стрижка\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Стрижка бороди та вусів\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Комплекс: чоловіча стрижка + стрижка бороди\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Стрижка машинкою з фадом (Fade)\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Дитяча стрижка (до 12 років)\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Королівське гоління небезпечною бритвою\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Комплекс «Батько + Син»\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Камуфлювання сивини волосся\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Камуфляж сивини бороди\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Укладка та стайлінг волосся\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Моделювання та окантовка бороди\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Гоління голови небезпечною бритвою або шейвером\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Воскова корекція (вуха, ніс, брови)\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Очищаюча маска для обличчя (Black Mask)\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Преміум-догляд за шкірою обличчя та бородою\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Художній тату-сеанс у Tattoo Room\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Подарункові сертифікати на послуги барбера\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Професійна стрижка + стрижка бороди\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Стрижка машинкою\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Королівське гоління\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Укладка волосся\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Стрижка бороди\"}}]},{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"СКІЛЬКИ РАЗІВ ПОТРІБНО ХОДИТИ В БАРБЕРШОП?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Кількість візитів до барбершопу залежить від вашого стилю, типу стрижки та швидкості росту волосся. Зазвичай чоловіки відвідують барбершоп кожні: 2–4 тижні, якщо потрібна коротка стрижка або підтримання чіткого стилю. 4–6 тижнів, якщо волосся довше або ви не потребуєте частого підрівнювання. Також, регулярні візити допомагають доглядати за бородою, якщо ви її носите. Обговоріть з вашим барбером оптимальний графік для підтримки вашого стилю.\"}}]}]"}</script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
-      <body className="bg-bg-dark text-text-main antialiased selection:bg-accent selection:text-black">
+      <body className="bg-bg-dark text-text-main antialiased selection:bg-accent selection:text-bg-dark min-h-screen flex flex-col font-body">
         <LocaleProvider>{children}</LocaleProvider>
       <SmoothScroll /></body>
     </html>
