@@ -1,99 +1,129 @@
 "use client";
 
-import { useLocale } from "@/lib/i18n";
+import { useLocale } from '@/lib/i18n';
+import { Reveal } from '@/components/motion';
 
-export default function TattooRoom() {
+interface TattooRoomProps {
+  onOpenBooking: () => void;
+}
+
+export default function TattooRoom({ onOpenBooking }: TattooRoomProps) {
   const { t } = useLocale();
 
+  const rawBullets = t('tattoo.bullets') as string[];
+  const bulletsList = Array.isArray(rawBullets) ? rawBullets : [];
+
   return (
-    <section id="tattoo" className="py-24 bg-primary-light relative border-y border-border-gold/30 scroll-mt-16 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-12 items-center">
-          {/* Left Text Column */}
-          <div className="lg:col-span-6 space-y-6">
-            <span className="text-xs font-bold text-accent tracking-widest uppercase font-mono block">
-              {t("tattooSection.kicker")}
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-display leading-tight">
-              {t("tattooSection.title")}
-            </h2>
-            <p className="text-text-muted text-sm sm:text-base leading-relaxed">
-              {t("tattooSection.subtitle")}
-            </p>
-
-            <div className="space-y-4 pt-2">
-              <div className="p-4 rounded bg-bg-card border border-border-dark flex gap-4 items-start">
-                <span className="text-accent font-mono font-bold text-sm">01</span>
-                <div>
-                  <h4 className="text-sm font-bold text-white font-display">
-                    {t("tattooSection.feature1Title")}
-                  </h4>
-                  <p className="text-xs text-text-muted mt-1 leading-relaxed">
-                    {t("tattooSection.feature1Desc")}
+    <section id="tattoo" className="py-24 bg-[hsl(20,12%,12%)] relative overflow-hidden border-y border-[hsl(38,90%,48%)]/20 scroll-mt-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          {/* Layer 9: 2-Photo Overlapped Cluster with Framed Edges */}
+          <Reveal className="relative">
+            <div className="relative">
+              {/* Main Photo */}
+              <div className="relative rounded-2xl overflow-hidden border border-white/15 shadow-2xl group">
+                <img
+                  src="https://lviv.bking.com.ua/wp-content/themes/bking/images/price-banner.jpg"
+                  alt={String(t('tattoo.imgAlt1'))}
+                  loading="lazy"
+                  className="w-full h-[420px] object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[hsl(20,15%,8%)] via-transparent to-transparent" />
+                
+                {/* Photo Caption with Hairline Rule */}
+                <div className="absolute bottom-4 left-4 right-4 p-4 bg-[hsl(20,15%,8%)]/90 backdrop-blur-md rounded-xl border border-[hsl(38,90%,48%)]/30">
+                  <div className="font-display font-bold text-xs uppercase text-[hsl(38,90%,48%)]">
+                    {String(t('tattoo.captionTitle'))}
+                  </div>
+                  <p className="text-[11px] text-white/80 mt-1">
+                    {String(t('tattoo.captionSub'))}
                   </p>
                 </div>
               </div>
 
-              <div className="p-4 rounded bg-bg-card border border-border-dark flex gap-4 items-start">
-                <span className="text-accent font-mono font-bold text-sm">02</span>
+              {/* Overlapped Secondary Photo Badge */}
+              <div className="absolute -bottom-6 -right-4 w-48 h-36 rounded-xl overflow-hidden border-2 border-[hsl(38,90%,48%)] shadow-2xl hidden sm:block">
+                <img
+                  src="https://lviv.bking.com.ua/wp-content/themes/bking/images/map-banner.jpg"
+                  alt={String(t('tattoo.imgAlt2'))}
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Text Content Stack */}
+          <div>
+            {/* Layer 1: Kicker */}
+            <Reveal>
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-[hsl(38,90%,48%)] mb-2">
+                {String(t('tattoo.kicker'))}
+              </p>
+            </Reveal>
+
+            {/* Layer 2: Heading */}
+            <Reveal delay={0.1}>
+              <h2 className="text-3xl sm:text-5xl font-extrabold uppercase tracking-tight text-white mb-6 leading-tight">
+                {String(t('tattoo.h2'))}
+              </h2>
+            </Reveal>
+
+            {/* Layer 3: Body Copy */}
+            <Reveal delay={0.2}>
+              <p className="text-sm sm:text-base text-white/80 leading-relaxed mb-6">
+                {String(t('tattoo.desc'))}
+              </p>
+            </Reveal>
+
+            {/* Layer 6: Stat Row */}
+            <Reveal delay={0.25}>
+              <div className="grid grid-cols-3 gap-4 border-y border-white/10 py-4 mb-6 text-center font-display uppercase">
                 <div>
-                  <h4 className="text-sm font-bold text-white font-display">
-                    {t("tattooSection.feature2Title")}
-                  </h4>
-                  <p className="text-xs text-text-muted mt-1 leading-relaxed">
-                    {t("tattooSection.feature2Desc")}
-                  </p>
+                  <div className="font-mono text-xl font-bold text-[hsl(38,90%,48%)]">100%</div>
+                  <div className="text-[10px] text-white/60">{String(t('tattoo.stat1'))}</div>
+                </div>
+                <div>
+                  <div className="font-mono text-xl font-bold text-white">180°C</div>
+                  <div className="text-[10px] text-white/60">{String(t('tattoo.stat2'))}</div>
+                </div>
+                <div>
+                  <div className="font-mono text-xl font-bold text-[hsl(38,90%,48%)]">01</div>
+                  <div className="text-[10px] text-white/60">{String(t('tattoo.stat3'))}</div>
                 </div>
               </div>
+            </Reveal>
 
-              <div className="p-4 rounded bg-bg-card border border-border-dark flex gap-4 items-start">
-                <span className="text-accent font-mono font-bold text-sm">03</span>
-                <div>
-                  <h4 className="text-sm font-bold text-white font-display">
-                    {t("tattooSection.feature3Title")}
-                  </h4>
-                  <p className="text-xs text-text-muted mt-1 leading-relaxed">
-                    {t("tattooSection.feature3Desc")}
-                  </p>
-                </div>
+            {/* Bullets */}
+            <Reveal delay={0.3}>
+              <div className="space-y-3 mb-8">
+                {bulletsList.map((bullet, idx) => (
+                  <div key={idx} className="flex items-start gap-3">
+                    <span className="w-2 h-2 rounded-full bg-[hsl(38,90%,48%)] shrink-0 mt-1.5" />
+                    <span className="text-xs sm:text-sm text-white/90">{bullet}</span>
+                  </div>
+                ))}
               </div>
-            </div>
+            </Reveal>
 
-            <div className="pt-2 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-              <a
-                href="#booking"
-                className="bg-gold-gradient text-bg-dark font-display font-extrabold text-xs uppercase tracking-wider px-8 py-4 rounded shadow-lg hover:brightness-110 transition-all min-h-[44px] flex items-center justify-center"
-              >
-                {t("tattooSection.ctaTattoo")}
-              </a>
-              <a
-                href="tel:+380662636339"
-                className="text-xs font-mono text-accent hover:underline py-2 min-h-[44px] flex items-center"
-              >
-                {t("tattooSection.consultPrefix")} +380 66 263 6339
-              </a>
-            </div>
-          </div>
-
-          {/* Right Image Feature */}
-          <div className="lg:col-span-6 relative">
-            <div className="rounded border-2 border-border-gold overflow-hidden shadow-2xl relative group">
-              <img
-                src="https://images.pexels.com/photos/36641345/pexels-photo-36641345.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
-                alt={t("tattooSection.imageAlt")}
-                className="w-full h-[450px] object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-bg-dark via-transparent to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6 p-4 rounded bg-bg-dark/95 backdrop-blur-md border border-border-gold">
-                <span className="text-[10px] font-mono text-accent uppercase tracking-widest block">
-                  {t("tattooSection.imageKicker")}
-                </span>
-                <p className="text-xs text-text-main font-medium mt-1">
-                  {t("tattooSection.imageSub")}
-                </p>
+            {/* Layer 8: CTA Pair */}
+            <Reveal delay={0.4}>
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                <button
+                  onClick={onOpenBooking}
+                  className="px-8 py-4 min-h-[44px] bg-[hsl(38,90%,48%)] hover:bg-[hsl(38,95%,58%)] text-[hsl(20,15%,10%)] font-display font-bold text-xs uppercase tracking-wider rounded-md transition-all shadow-lg active:scale-95 accent-glow text-center"
+                >
+                  {String(t('tattoo.cta'))}
+                </button>
+                <a
+                  href={`tel:${String(t('brand.phone')).replace(/\s+/g, '')}`}
+                  className="text-xs font-bold uppercase tracking-wider text-white hover:text-[hsl(38,90%,48%)] transition-colors text-center py-2"
+                >
+                  {String(t('tattoo.consultLabel'))}: {String(t('brand.phone'))}
+                </a>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </div>

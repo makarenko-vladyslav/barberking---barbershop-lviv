@@ -1,142 +1,169 @@
 "use client";
 
-import { useState } from "react";
-import { useLocale } from "@/lib/i18n";
+import { useState } from 'react';
+import { useLocale } from '@/lib/i18n';
+import { Reveal, Stagger, StaggerItem } from '@/components/motion';
 
 interface ServiceItem {
   id: string;
-  name: string;
+  category: string;
+  title: string;
   price: string;
-  duration: string;
-  desc: string;
-  popular?: boolean;
+  time: string;
   tag?: string;
+  desc: string;
+  photo: string;
 }
 
-export default function Services() {
-  const { t, getObject } = useLocale();
-  const [activeTab, setActiveTab] = useState<string>("all");
+interface ServicesProps {
+  onOpenBooking: () => void;
+}
 
-  const items = getObject<ServiceItem[]>("servicesSection.items") || [];
-  const tabKeys = ["all", "hair", "shave", "combo", "care"] as const;
+export default function Services({ onOpenBooking }: ServicesProps) {
+  const { t } = useLocale();
+  const [activeTab, setActiveTab] = useState<string>('all');
 
-  const filteredItems = items.filter((item) => {
-    if (activeTab === "all") return true;
-    if (activeTab === "hair") return item.id === "1" || item.id === "5" || item.id === "8";
-    if (activeTab === "shave") return item.id === "3" || item.id === "4";
-    if (activeTab === "combo") return item.id === "2" || item.id === "6";
-    if (activeTab === "care") return item.id === "7";
-    return true;
-  });
+  const rawServices = t('services.items') as ServiceItem[];
+  const servicesList = Array.isArray(rawServices) ? rawServices : [];
+
+  const filteredServices = activeTab === 'all'
+    ? servicesList
+    : servicesList.filter((s) => s.category === activeTab);
+
+  const tabs = [
+    { key: 'all', label: String(t('services.tabs.all')) },
+    { key: 'hair', label: String(t('services.tabs.hair')) },
+    { key: 'beard', label: String(t('services.tabs.beard')) },
+    { key: 'care', label: String(t('services.tabs.care')) },
+    { key: 'tattoo', label: String(t('services.tabs.tattoo')) },
+  ];
 
   return (
-    <section id="services" className="py-24 bg-bg-dark relative scroll-mt-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Heading */}
+    <section id="services" className="py-24 bg-[hsl(20,15%,8%)] relative overflow-hidden scroll-mt-16 border-t border-white/10">
+      {/* Background Watermark */}
+      <div 
+        className="absolute top-1/3 -right-20 font-display font-black text-[15vw] text-white/[0.02] uppercase tracking-tighter pointer-events-none select-none"
+        aria-hidden="true"
+      >
+        {String(t('services.watermark'))}
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Layer 1 & 2 & 3: Kicker + Heading + Lede */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="text-xs font-bold text-accent tracking-widest uppercase font-mono block mb-2">
-            {t("servicesSection.kicker")}
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-display mb-3">
-            {t("servicesSection.title")}
-          </h2>
-          <p className="text-text-muted text-sm sm:text-base leading-relaxed">
-            {t("servicesSection.subtitle")}
-          </p>
-        </div>
-
-        {/* Category Filter Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
-          {tabKeys.map((key) => (
-            <button
-              key={key}
-              onClick={() => setActiveTab(key)}
-              className={`px-5 py-3 rounded-sm text-xs uppercase tracking-wider font-bold transition-all font-display min-h-[44px] ${
-                activeTab === key
-                  ? "bg-gold-gradient text-bg-dark shadow-md"
-                  : "bg-bg-card border border-border-dark text-text-muted hover:border-accent hover:text-accent"
-              }`}
-            >
-              {t(`servicesSection.tabs.${key}`)}
-            </button>
-          ))}
-        </div>
-
-        {/* Price Row List Layout (Award-winning style with leader lines) */}
-        <div className="max-w-4xl mx-auto space-y-4">
-          {filteredItems.map((service) => (
-            <div
-              key={service.id}
-              className={`p-5 sm:p-6 rounded bg-bg-card/90 border transition-all hover:border-accent group ${
-                service.popular
-                  ? "border-accent bg-gradient-to-r from-bg-card via-primary-light/40 to-bg-card shadow-lg"
-                  : "border-border-dark"
-              }`}
-            >
-              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-2">
-                <div className="flex items-center gap-3">
-                  <h3 className="text-lg sm:text-xl font-bold text-white font-display group-hover:text-accent transition-colors">
-                    {service.name}
-                  </h3>
-                  {service.tag && (
-                    <span className="text-[10px] font-mono font-bold tracking-wider px-2 py-0.5 rounded bg-accent/20 text-accent border border-accent/40">
-                      {service.tag}
-                    </span>
-                  )}
-                </div>
-
-                {/* Dotted leader effect for desktop */}
-                <div className="hidden sm:block flex-1 mx-4 border-b border-dashed border-border-dark opacity-40" />
-
-                <div className="flex items-baseline gap-3 shrink-0">
-                  <span className="text-xs font-mono text-text-muted">{service.duration}</span>
-                  <span className="text-xl font-extrabold text-accent font-display tabular-nums">
-                    {service.price}
-                  </span>
-                </div>
-              </div>
-
-              <p className="text-xs sm:text-sm text-text-muted leading-relaxed max-w-2xl mb-4">
-                {service.desc}
-              </p>
-
-              <div className="flex items-center justify-between pt-2 border-t border-border-dark/40">
-                <span className="text-[10px] font-mono text-text-muted">
-                  {t("servicesSection.includeWash")}
-                </span>
-                <a
-                  href="#booking"
-                  className="text-xs font-bold uppercase tracking-wider text-accent hover:text-white transition-colors inline-flex items-center gap-1 font-display py-2 min-h-[44px]"
-                >
-                  <span>{t("common.bookAction")}</span>
-                  <span>→</span>
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Footnote Line */}
-        <div className="mt-8 text-center text-xs font-mono text-text-muted max-w-3xl mx-auto">
-          {t("servicesSection.footnote")}
-        </div>
-
-        {/* Media Banner Container */}
-        <div className="mt-14 max-w-4xl mx-auto overflow-hidden rounded border border-border-gold/40 relative group">
-          <img
-            src="https://images.pexels.com/photos/7518739/pexels-photo-7518739.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
-            alt={t("servicesSection.bannerAlt")}
-            className="w-full h-52 sm:h-64 object-cover object-top group-hover:scale-105 transition-transform duration-700 filter brightness-85"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-bg-dark via-bg-dark/50 to-transparent flex flex-col justify-end p-6">
-            <span className="text-[10px] font-mono text-accent uppercase tracking-widest block mb-1">
-              {t("servicesSection.bannerKicker")}
-            </span>
-            <p className="text-sm sm:text-base text-white font-bold font-display">
-              {t("servicesSection.bannerText")}
+          <Reveal>
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[hsl(38,90%,48%)] mb-2">
+              {String(t('services.kicker'))}
             </p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <h2 className="text-3xl sm:text-5xl font-extrabold uppercase tracking-tight text-white mb-4">
+              {String(t('services.h2'))}
+            </h2>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <p className="text-sm sm:text-base text-white/70">
+              {String(t('services.subtitle'))}
+            </p>
+          </Reveal>
+        </div>
+
+        {/* Layer 4: Category Tabs */}
+        <Reveal delay={0.3}>
+          <div className="flex flex-wrap justify-center gap-2 mb-12">
+            {tabs.map((tab) => (
+              <button
+                key={tab.key}
+                onClick={() => setActiveTab(tab.key)}
+                className={`px-5 py-2.5 min-h-[44px] flex items-center justify-center rounded-full text-xs font-display font-bold uppercase tracking-wider transition-all border ${
+                  activeTab === tab.key
+                    ? 'bg-[hsl(38,90%,48%)] text-[hsl(20,15%,10%)] border-[hsl(38,90%,48%)] shadow-md'
+                    : 'bg-white/5 text-white/80 border-white/10 hover:border-white/25 hover:text-white'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
           </div>
+        </Reveal>
+
+        {/* Layer 5: Price Rows with Photos + Dotted Leader + Tabular Price */}
+        <Stagger className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {filteredServices.map((service) => {
+            const isSignature = service.id === 'combo';
+            return (
+              <StaggerItem key={service.id}>
+                <div 
+                  className={`border rounded-xl overflow-hidden transition-all duration-300 flex flex-col sm:flex-row group h-full relative ${
+                    isSignature 
+                      ? 'bg-[hsl(20,12%,14%)] border-[hsl(38,90%,48%)]/60 shadow-xl' 
+                      : 'bg-[hsl(20,12%,12%)] border-white/10 hover:border-[hsl(38,90%,48%)]/40'
+                  }`}
+                >
+                  {/* Distinct Photo Media */}
+                  <div className="sm:w-2/5 relative h-48 sm:h-auto overflow-hidden shrink-0">
+                    <img
+                      src={service.photo}
+                      alt={service.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute top-3 left-3 px-2.5 py-1 bg-[hsl(20,15%,8%)]/90 backdrop-blur-sm rounded text-[10px] font-bold uppercase tracking-wider text-[hsl(38,90%,48%)] border border-[hsl(38,90%,48%)]/30">
+                      {service.time}
+                    </div>
+                  </div>
+
+                  {/* Content Area */}
+                  <div className="p-6 sm:w-3/5 flex flex-col justify-between">
+                    <div>
+                      {/* Micro-tag */}
+                      {service.tag && (
+                        <span className="inline-block px-2.5 py-0.5 rounded bg-[hsl(38,90%,48%)]/15 border border-[hsl(38,90%,48%)]/30 text-[9px] font-bold uppercase tracking-widest text-[hsl(38,90%,58%)] mb-2">
+                          {service.tag}
+                        </span>
+                      )}
+
+                      {/* Header + Leader Line + Tabular Price */}
+                      <div className="flex items-baseline justify-between gap-2 mb-2">
+                        <h3 className="font-display text-base sm:text-lg font-bold text-white uppercase tracking-wide group-hover:text-[hsl(38,90%,48%)] transition-colors">
+                          {service.title}
+                        </h3>
+                        <div className="flex-grow border-b border-dotted border-white/20 mx-2 hidden sm:block" />
+                        <span className="font-mono font-extrabold text-base text-[hsl(38,90%,48%)] shrink-0">
+                          {service.price}
+                        </span>
+                      </div>
+
+                      <p className="text-xs text-white/70 leading-relaxed mb-4">
+                        {service.desc}
+                      </p>
+                    </div>
+
+                    <button
+                      onClick={onOpenBooking}
+                      className="inline-flex items-center gap-1.5 min-h-[44px] text-xs font-bold uppercase tracking-wider text-[hsl(38,90%,48%)] hover:text-white transition-colors pt-3 border-t border-white/10 mt-auto"
+                    >
+                      <span>{String(t('services.bookCta'))}</span>
+                      <span>→</span>
+                    </button>
+                  </div>
+                </div>
+              </StaggerItem>
+            );
+          })}
+        </Stagger>
+
+        {/* Layer 8 & 9: Footnote Line + Secondary CTA */}
+        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/60">
+          <p className="text-center sm:text-left">
+            {String(t('services.footnote'))}
+          </p>
+          <a
+            href="#calculator"
+            className="text-[hsl(38,90%,48%)] hover:underline font-bold uppercase tracking-wider shrink-0 py-2"
+          >
+            {String(t('services.calcLink'))} ↓
+          </a>
         </div>
       </div>
     </section>

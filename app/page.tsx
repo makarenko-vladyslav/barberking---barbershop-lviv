@@ -1,59 +1,80 @@
-import Header from "@/components/Header";
-import Hero from "@/components/Hero";
-import SocialProof from "@/components/SocialProof";
-import Services from "@/components/Services";
-import Calculator from "@/components/Calculator";
-import InterstitialBand from "@/components/InterstitialBand";
-import MasterTiers from "@/components/MasterTiers";
-import TattooRoom from "@/components/TattooRoom";
-import Amenities from "@/components/Amenities";
-import Portfolio from "@/components/Portfolio";
-import Reviews from "@/components/Reviews";
-import FAQ from "@/components/FAQ";
-import BookingForm from "@/components/BookingForm";
-import ContactMap from "@/components/ContactMap";
-import Footer from "@/components/Footer";
-import MobileNav from "@/components/MobileNav";
-import { Reveal } from "@/components/motion";
+import { useState } from 'react';
+import Header from '@/components/Header';
+import Hero from '@/components/Hero';
+import SocialProof from '@/components/SocialProof';
+import Services from '@/components/Services';
+import InteractiveCalculator from '@/components/InteractiveCalculator';
+import Advantages from '@/components/Advantages';
+import TattooRoom from '@/components/TattooRoom';
+import Team from '@/components/Team';
+import Gallery from '@/components/Gallery';
+import VideoShowcase from '@/components/VideoShowcase';
+import Testimonials from '@/components/Testimonials';
+import FAQ from '@/components/FAQ';
+import Contact from '@/components/Contact';
+import Footer from '@/components/Footer';
+import BookingModal from '@/components/BookingModal';
+import { WatermarkStatement, LabeledHairline } from '@/components/Interstitials';
+import { useLocale } from '@/lib/i18n';
 
-export default function Home() {
+export default function HomeWrapper() {
+  return <HomeContent />;
+}
+
+function Home() {
+  const [bookingOpen, setBookingOpen] = useState(false);
+  const { t } = useLocale();
+
   return (
-    <>
-      <Header />
-      <main className="pb-16 md:pb-0">
-        <Reveal><Hero /></Reveal>
-        <Reveal><SocialProof /></Reveal>
-        <Reveal><Services /></Reveal>
-        <Reveal><Calculator /></Reveal>
+    <div className="min-h-screen bg-[hsl(20,15%,8%)] text-[hsl(35,15%,92%)] flex flex-col font-body">
+      <Header onOpenBooking={() => setBookingOpen(true)} />
+      
+      <main className="flex-grow">
+        <Hero onOpenBooking={() => setBookingOpen(true)} />
+        <SocialProof />
         
-        <Reveal>
-          <InterstitialBand
-            label="РЕГЛАМЕНТ ТА ДИСЦИПЛІНА"
-            statement="Чоловічий простір на вул. Шевченка 31А — поєднання точності стрижки, поваги до вашого часу та приватного паркінгу."
-            watermark="ТРАДИЦІЇ"
-          />
-        </Reveal>
+        <Services onOpenBooking={() => setBookingOpen(true)} />
+        
+        {/* Interstitial 1 */}
+        <WatermarkStatement 
+          word="LVIV" 
+          statement={String(t('interstitial.statement1'))} 
+        />
 
-        <Reveal><MasterTiers /></Reveal>
-        <Reveal><TattooRoom /></Reveal>
-        <Reveal><Amenities /></Reveal>
+        <InteractiveCalculator onOpenBooking={() => setBookingOpen(true)} />
+        
+        {/* Interstitial 2 */}
+        <LabeledHairline label={String(t('interstitial.hairline1'))} />
 
-        <Reveal>
-          <div className="bg-bg-dark border-y border-border-gold/40 py-4 text-center">
-            <span className="text-xs font-mono text-accent uppercase tracking-widest">
-              БАРБЕРІНГ ТА ТАТУ-МИСТЕЦТВО У ЛЬВОВІ · ВУЛ. ШЕВЧЕНКА 31А
-            </span>
-          </div>
-        </Reveal>
+        <Advantages />
+        
+        <TattooRoom onOpenBooking={() => setBookingOpen(true)} />
+        
+        <Team onOpenBooking={() => setBookingOpen(true)} />
+        
+        {/* Interstitial 3 */}
+        <WatermarkStatement 
+          word="REMESLO" 
+          statement={String(t('interstitial.statement2'))} 
+        />
 
-        <Reveal><Portfolio /></Reveal>
-        <Reveal><Reviews /></Reveal>
-        <Reveal><FAQ /></Reveal>
-        <Reveal><BookingForm /></Reveal>
-        <Reveal><ContactMap /></Reveal>
+        <Gallery />
+        <VideoShowcase />
+        <Testimonials />
+        <FAQ />
+        <Contact />
       </main>
+
       <Footer />
-      <MobileNav />
-    </>
+
+      <BookingModal
+        isOpen={bookingOpen}
+        onClose={() => setBookingOpen(false)}
+      />
+    </div>
   );
+}
+
+function HomeContent() {
+  return <Home />;
 }
