@@ -74,7 +74,7 @@ export default function CraftShowcase() {
           <div className="lg:col-span-6 relative">
             <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl">
               <img
-                src="https://images.pexels.com/photos/7320120/pexels-photo-7320120.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
+                src="https://images.pexels.com/photos/7320169/pexels-photo-7320169.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
                 alt={t("craft.img1_alt") as string}
                 loading="lazy"
                 className="w-full h-[360px] sm:h-[420px] object-cover filter brightness-90"
@@ -83,7 +83,7 @@ export default function CraftShowcase() {
             {/* Overlapped / Tilted Photo */}
             <div className="hidden sm:block absolute -bottom-8 -right-6 w-3/5 rounded-lg overflow-hidden border-2 border-[hsl(38,88%,52%)]/40 shadow-2xl transform rotate-2">
               <img
-                src="https://images.pexels.com/photos/9146943/pexels-photo-9146943.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
+                src="https://images.pexels.com/photos/18301169/pexels-photo-18301169.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
                 alt={t("craft.img2_alt") as string}
                 loading="lazy"
                 className="w-full h-[220px] object-cover"

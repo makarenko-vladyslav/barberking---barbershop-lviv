@@ -6,12 +6,12 @@ export default function Gallery() {
   const { t } = useLocale();
 
   const galleryImages = [
-    "https://images.pexels.com/photos/13058740/pexels-photo-13058740.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
-    "https://images.pexels.com/photos/9146943/pexels-photo-9146943.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
-    "https://images.pexels.com/photos/9992819/pexels-photo-9992819.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-    "https://images.pexels.com/photos/32329615/pexels-photo-32329615.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-    "https://images.pexels.com/photos/8867160/pexels-photo-8867160.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-    "https://images.pexels.com/photos/19555674/pexels-photo-19555674.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+    "https://images.pexels.com/photos/32351044/pexels-photo-32351044.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
+    "https://images.pexels.com/photos/18301169/pexels-photo-18301169.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
+    "https://images.pexels.com/photos/32351044/pexels-photo-32351044.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+    "https://images.pexels.com/photos/38167599/pexels-photo-38167599.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+    "https://images.pexels.com/photos/8552629/pexels-photo-8552629.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+    "https://images.pexels.com/videos/6113144/artisan-barber-barber-shop-barbershop-6113144.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
   ];
 
   return (

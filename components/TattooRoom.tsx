@@ -53,7 +53,7 @@ export default function TattooRoom() {
           {/* Right Image Container (5 cols) */}
           <div className="lg:col-span-5 relative rounded-xl overflow-hidden border border-white/10 shadow-2xl group">
             <img
-              src="https://images.pexels.com/photos/18090355/pexels-photo-18090355.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
+              src="https://images.pexels.com/photos/9258291/pexels-photo-9258291.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
               alt={t("tattoo.img_alt") as string}
               loading="lazy"
               className="w-full h-[400px] sm:h-[480px] object-cover filter brightness-90 group-hover:scale-105 transition-transform duration-700"

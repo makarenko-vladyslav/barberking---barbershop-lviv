@@ -24,7 +24,7 @@ export default function VideoSection() {
           <video
             controls
             playsInline
-            poster="https://images.pexels.com/videos/7686511/pexels-photo-7686511.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200"
+            poster="https://images.pexels.com/photos/13138476/pexels-photo-13138476.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200"
             className="w-full h-full object-cover"
           >
             <source
