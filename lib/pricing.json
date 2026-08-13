@@ -1,0 +1,18 @@
+{
+  "currency": "UAH",
+  "basePrices": {
+    "haircut": 600,
+    "combo": 950,
+    "clipper": 450,
+    "royal_shave": 400,
+    "styling": 250,
+    "beard_trim": 450,
+    "black_mask": 300,
+    "grey_camouflage": 350,
+    "tattoo_session": 1500
+  },
+  "discounts": {
+    "loyalty_member": 0.1,
+    "father_son_combo": 0.15
+  }
+}
