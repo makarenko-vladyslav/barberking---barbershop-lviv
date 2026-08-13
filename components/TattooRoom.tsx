@@ -24,7 +24,7 @@ export default function TattooRoom({ onOpenBooking }: TattooRoomProps) {
               {/* Main Photo */}
               <div className="relative rounded-2xl overflow-hidden border border-white/15 shadow-2xl group">
                 <img
-                  src="https://lviv.bking.com.ua/wp-content/themes/bking/images/price-banner.jpg"
+                  src="/barberking---barbershop-lviv/media/18577b77e34c2f08.jpg"
                   alt={String(t('tattoo.imgAlt1'))}
                   loading="lazy"
                   className="w-full h-[420px] object-cover group-hover:scale-105 transition-transform duration-700"
@@ -45,7 +45,7 @@ export default function TattooRoom({ onOpenBooking }: TattooRoomProps) {
               {/* Overlapped Secondary Photo Badge */}
               <div className="absolute -bottom-6 -right-4 w-48 h-36 rounded-xl overflow-hidden border-2 border-[hsl(38,90%,48%)] shadow-2xl hidden sm:block">
                 <img
-                  src="https://lviv.bking.com.ua/wp-content/themes/bking/images/map-banner.jpg"
+                  src="/barberking---barbershop-lviv/media/595ee413a10b5260.jpg"
                   alt={String(t('tattoo.imgAlt2'))}
                   loading="lazy"
                   className="w-full h-full object-cover"
