@@ -1,84 +1,67 @@
 "use client";
 
-import { useLocale } from '@/lib/i18n';
-import { Reveal, Stagger, StaggerItem } from '@/components/motion';
+import { useLocale } from "@/lib/i18n";
 
 interface TeamMember {
   name: string;
   role: string;
   exp: string;
-  desc: string;
+  spec: string;
 }
 
-interface TeamProps {
-  onOpenBooking: () => void;
-}
-
-export default function Team({ onOpenBooking }: TeamProps) {
+export default function Team() {
   const { t } = useLocale();
-
-  const rawMembers = t('team.members') as TeamMember[];
-  const membersList = Array.isArray(rawMembers) ? rawMembers : [];
+  const members = (t("team.members") as TeamMember[]) || [];
 
   return (
-    <section id="team" className="py-24 bg-[hsl(20,15%,8%)] relative overflow-hidden scroll-mt-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Layer 1 & 2 & 3: Kicker + Heading + Lede */}
+    <section id="team" className="scroll-mt-20 py-24 bg-[hsl(220,22%,8%)] relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <Reveal>
-            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[hsl(38,90%,48%)] mb-2">
-              {String(t('team.kicker'))}
-            </p>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <h2 className="text-3xl sm:text-5xl font-extrabold uppercase tracking-tight text-white mb-4">
-              {String(t('team.h2'))}
-            </h2>
-          </Reveal>
-          <Reveal delay={0.2}>
-            <p className="text-sm sm:text-base text-white/70">
-              {String(t('team.subtitle'))}
-            </p>
-          </Reveal>
+          <div className="text-xs font-bold uppercase tracking-[0.25em] text-[hsl(38,88%,52%)] mb-3 font-mono">
+            {t("team.kicker") as string}
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-extrabold uppercase text-white tracking-tight mb-4 font-display">
+            {t("team.title") as string}
+          </h2>
+          <p className="text-xs sm:text-sm text-[hsl(220,12%,65%)]">
+            {t("team.subtitle") as string}
+          </p>
         </div>
 
-        {/* Team Grid */}
-        <Stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {membersList.map((member, idx) => (
-            <StaggerItem key={idx}>
-              <div className="bg-[hsl(20,12%,12%)] border border-white/10 rounded-2xl p-6 text-center hover:border-[hsl(38,90%,48%)]/50 transition-all duration-300 group flex flex-col justify-between h-full relative">
-                <div>
-                  {/* Initials Avatar Box */}
-                  <div className="w-24 h-24 rounded-full bg-[hsl(38,90%,48%)]/20 border-2 border-[hsl(38,90%,48%)] flex items-center justify-center text-2xl font-display font-extrabold text-[hsl(38,90%,48%)] mx-auto mb-6 group-hover:scale-105 transition-transform">
-                    {member.name.slice(0, 2)}
-                  </div>
-
-                  <span className="inline-block px-3 py-1 rounded-full bg-white/5 text-[10px] font-bold uppercase tracking-widest text-[hsl(38,90%,48%)] mb-3 border border-white/10">
-                    {member.role}
-                  </span>
-
-                  <h3 className="font-display text-2xl font-bold uppercase text-white mb-1">
-                    {member.name}
-                  </h3>
-
-                  <p className="text-xs font-mono font-medium text-white/50 mb-4">{member.exp}</p>
-
-                  <p className="text-xs text-white/70 leading-relaxed mb-6">
-                    {member.desc}
-                  </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {members.map((m, idx) => (
+            <div
+              key={idx}
+              className="bg-[hsl(220,18%,13%)] border border-white/5 rounded-xl overflow-hidden p-6 flex flex-col justify-between group hover:border-[hsl(38,88%,52%)]/40 transition-all duration-300"
+            >
+              <div>
+                <div className="w-14 h-14 rounded-full bg-[hsl(38,88%,52%)]/20 text-[hsl(38,88%,52%)] font-extrabold text-lg flex items-center justify-center font-display mb-4 border border-[hsl(38,88%,52%)]/40">
+                  {m.name.charAt(0)}
                 </div>
 
-                <button
-                  onClick={onOpenBooking}
-                  className="w-full py-2.5 bg-white/5 hover:bg-[hsl(38,90%,48%)] hover:text-[hsl(20,15%,10%)] text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-all border border-white/10"
-                >
-                  Записатися до {member.name}
-                </button>
+                <div className="text-[10px] font-bold uppercase tracking-widest text-[hsl(38,88%,52%)] mb-1 font-mono">
+                  {m.role}
+                </div>
+                <h3 className="text-xl font-extrabold uppercase text-white mb-2 font-display">
+                  {m.name}
+                </h3>
+                <div className="text-[11px] font-semibold text-white/60 bg-white/5 inline-block px-2 py-0.5 rounded mb-4 font-mono">
+                  {m.exp}
+                </div>
+                <p className="text-xs text-[hsl(220,12%,65%)] leading-relaxed mb-6">
+                  {m.spec}
+                </p>
               </div>
-            </StaggerItem>
+
+              <a
+                href="#booking"
+                className="w-full py-3 text-center text-xs font-bold uppercase tracking-wider bg-white/5 hover:bg-[hsl(38,88%,52%)] hover:text-[hsl(220,20%,10%)] text-white rounded transition-colors"
+              >
+                Записатися до майстра
+              </a>
+            </div>
           ))}
-        </Stagger>
+        </div>
       </div>
     </section>
   );
