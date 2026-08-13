@@ -2,128 +2,192 @@
 
 import { useState } from "react";
 import { useLocale } from "@/lib/i18n";
-import pricingData from "@/lib/pricing.json";
+import { Reveal } from "@/components/motion";
 
 export default function Calculator() {
   const { t } = useLocale();
 
-  const [selectedServiceId, setSelectedServiceId] = useState(pricingData.services[0].id);
-  const [selectedExtras, setSelectedExtras] = useState<string[]>([]);
+  const [serviceType, setServiceType] = useState<"cut" | "beard" | "combo">("combo");
+  const [includeCare, setIncludeCare] = useState(false);
+  const [includeWax, setIncludeWax] = useState(false);
+  const [isFatherSon, setIsFatherSon] = useState(false);
 
-  const currentService = pricingData.services.find((s) => s.id === selectedServiceId) || pricingData.services[0];
+  const calculateEstimate = () => {
+    let base = 950;
+    if (serviceType === "cut") base = 600;
+    if (serviceType === "beard") base = 450;
+    if (serviceType === "combo") base = 950;
 
-  const extrasCost = selectedExtras.reduce((sum, extraId) => {
-    const item = pricingData.extras.find((e) => e.id === extraId);
-    return sum + (item ? item.price : 0);
-  }, 0);
+    if (isFatherSon) base += 300;
+    if (includeCare) base += 250;
+    if (includeWax) base += 150;
 
-  const totalPrice = currentService.price + extrasCost;
-  const totalMinutes = currentService.durationMinutes + selectedExtras.length * 15;
-
-  const toggleExtra = (id: string) => {
-    if (selectedExtras.includes(id)) {
-      setSelectedExtras(selectedExtras.filter((e) => e !== id));
-    } else {
-      setSelectedExtras([...selectedExtras, id]);
-    }
+    return base;
   };
 
+  const calculateTime = () => {
+    let time = 75;
+    if (serviceType === "cut") time = 50;
+    if (serviceType === "beard") time = 40;
+    if (serviceType === "combo") time = 75;
+
+    if (isFatherSon) time += 30;
+    if (includeCare) time += 20;
+    if (includeWax) time += 15;
+
+    return time;
+  };
+
+  const total = calculateEstimate();
+  const duration = calculateTime();
+
   return (
-    <section id="calculator" className="scroll-mt-20 py-24 bg-[hsl(220,18%,14%)] relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="text-xs font-bold uppercase tracking-[0.25em] text-[hsl(38,88%,52%)] mb-3 font-mono">
-            {t("calculator.kicker") as string}
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold uppercase text-white tracking-tight mb-4 font-display">
-            {t("calculator.title") as string}
-          </h2>
-          <p className="text-xs sm:text-sm text-[hsl(220,12%,65%)] max-w-xl mx-auto">
-            {t("calculator.subtitle") as string}
-          </p>
-        </div>
+    <section id="calculator" className="py-24 bg-[hsl(38,25%,96%)] text-[hsl(220,25%,12%)] relative scroll-mt-16 overflow-hidden">
+      {/* Light Ground Background Decorative Element */}
+      <div 
+        aria-hidden="true" 
+        className="absolute bottom-0 left-0 z-0 pointer-events-none opacity-[0.04] whitespace-nowrap text-[18vw] font-display font-extrabold text-[hsl(220,25%,12%)] tracking-tighter"
+      >
+        CALCULATOR
+      </div>
 
-        <div className="max-w-4xl mx-auto bg-[hsl(220,22%,8%)] border border-[hsl(38,88%,52%)]/30 rounded-xl p-6 sm:p-10 shadow-2xl">
-          {/* Core Service Selection */}
-          <div className="mb-8">
-            <label className="block text-xs font-bold uppercase tracking-wider text-[hsl(38,88%,52%)] mb-4 font-mono">
-              {t("calculator.select_service") as string}
-            </label>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              {pricingData.services.map((srv) => {
-                const active = srv.id === selectedServiceId;
-                return (
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Reveal>
+          <div className="text-center mb-12">
+            <span className="text-xs uppercase tracking-[0.3em] font-extrabold text-[hsl(38,90%,40%)] block mb-2">
+              ІНТЕРАКТИВНИЙ РОЗРАХУНОК
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-display font-extrabold uppercase tracking-tight text-zinc-900">
+              Розрахуйте тривалість та вартість візиту
+            </h2>
+            <p className="mt-3 text-zinc-600 text-sm max-w-xl mx-auto leading-relaxed">
+              Оберіть бажані процедури для персонального розрахунку часу та підсумкової вартості.
+            </p>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.1}>
+          <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-2xl border border-zinc-200">
+            {/* Step 1: Base Service */}
+            <div className="mb-8">
+              <div className="flex items-center justify-between mb-3">
+                <label className="text-xs uppercase tracking-widest font-extrabold text-zinc-500">
+                  1. ОСНОВНА ПОСЛУГА
+                </label>
+                <span className="text-[11px] text-zinc-400 font-mono">Обов'язковий вибір</span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                {[
+                  { id: "combo", title: "Комплекс: Стрижка + Борода", price: "950 грн", time: "75 хв" },
+                  { id: "cut", title: "Чоловіча стрижка", price: "600 грн", time: "50 хв" },
+                  { id: "beard", title: "Стрижка бороди", price: "450 грн", time: "40 хв" },
+                ].map((item) => (
                   <button
+                    key={item.id}
                     type="button"
-                    key={srv.id}
-                    onClick={() => setSelectedServiceId(srv.id)}
-                    className={`p-3.5 text-left rounded border transition-all text-xs font-medium flex flex-col justify-between ${
-                      active
-                        ? "bg-[hsl(38,88%,52%)]/15 border-[hsl(38,88%,52%)] text-white font-bold"
-                        : "bg-[hsl(220,18%,13%)] border-white/5 text-[hsl(220,12%,70%)] hover:border-white/20"
+                    onClick={() => setServiceType(item.id as any)}
+                    className={`p-4 rounded-2xl text-left border-2 transition-all ${
+                      serviceType === item.id
+                        ? "border-[hsl(38,90%,50%)] bg-[hsl(38,90%,50%)]/10 text-zinc-900 font-bold shadow-md"
+                        : "border-zinc-200 text-zinc-700 hover:border-zinc-300"
                     }`}
                   >
-                    <span>{srv.name}</span>
-                    <span className="mt-2 text-[hsl(38,88%,52%)] font-extrabold text-sm tabular-nums">
-                      від {srv.price} {pricingData.currency}
-                    </span>
+                    <div className="text-sm font-bold">{item.title}</div>
+                    <div className="flex items-center justify-between mt-2 pt-2 border-t border-zinc-100">
+                      <span className="text-xs text-[hsl(38,90%,40%)] font-extrabold">
+                        {item.price}
+                      </span>
+                      <span className="text-[10px] text-zinc-400 font-mono">{item.time}</span>
+                    </div>
                   </button>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Extras Selection */}
-          <div className="mb-10">
-            <label className="block text-xs font-bold uppercase tracking-wider text-[hsl(38,88%,52%)] mb-4 font-mono">
-              {t("calculator.select_extras") as string}
-            </label>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {pricingData.extras.map((extra) => {
-                const checked = selectedExtras.includes(extra.id);
-                return (
-                  <button
-                    type="button"
-                    key={extra.id}
-                    onClick={() => toggleExtra(extra.id)}
-                    className={`p-3.5 text-left rounded border transition-all text-xs flex items-center justify-between ${
-                      checked
-                        ? "bg-[hsl(38,88%,52%)]/20 border-[hsl(38,88%,52%)] text-white font-bold"
-                        : "bg-[hsl(220,18%,13%)] border-white/5 text-[hsl(220,12%,70%)] hover:border-white/20"
-                    }`}
-                  >
-                    <span>{extra.name}</span>
-                    <span className="text-[hsl(38,88%,52%)] font-extrabold tabular-nums">
-                      +{extra.price} {pricingData.currency}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Calculator Results Summary */}
-          <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6 bg-[hsl(220,18%,13%)] p-6 rounded-lg">
-            <div>
-              <div className="text-[11px] uppercase tracking-wider text-[hsl(220,12%,60%)] mb-1 font-mono">
-                {t("calculator.total_price") as string}
-              </div>
-              <div className="text-3xl font-extrabold text-[hsl(38,88%,52%)] font-display tabular-nums">
-                {totalPrice} {pricingData.currency}
-              </div>
-              <div className="text-xs text-[hsl(220,12%,65%)] mt-1 font-mono">
-                {t("calculator.total_time") as string} ~{totalMinutes} {t("calculator.minutes") as string}
+                ))}
               </div>
             </div>
 
-            <a
-              href="#booking"
-              className="w-full sm:w-auto text-center px-8 py-4 text-xs font-extrabold uppercase tracking-wider bg-[hsl(38,88%,52%)] hover:bg-[hsl(38,95%,45%)] text-[hsl(220,20%,10%)] rounded shadow-lg transition-all"
-            >
-              {t("calculator.book_this") as string}
-            </a>
+            {/* Step 2: Add-ons */}
+            <div className="mb-8 pt-6 border-t border-zinc-100">
+              <label className="block text-xs uppercase tracking-widest font-extrabold text-zinc-500 mb-3">
+                2. ДОДАТКОВИЙ ДОГЛЯД
+              </label>
+              <div className="space-y-3">
+                <label className="flex items-center justify-between p-4 rounded-xl border border-zinc-200 hover:bg-zinc-50 cursor-pointer transition-colors">
+                  <div className="flex items-center gap-3">
+                    <input
+                      type="checkbox"
+                      checked={includeCare}
+                      onChange={(e) => setIncludeCare(e.target.checked)}
+                      className="w-4 h-4 accent-[hsl(38,90%,50%)] rounded"
+                    />
+                    <div>
+                      <span className="text-sm font-semibold text-zinc-800 block">
+                        Чорна маска & догляд за обличчям
+                      </span>
+                      <span className="text-[11px] text-zinc-400">Глибоке очищення пор та тонізація</span>
+                    </div>
+                  </div>
+                  <span className="text-xs font-bold text-zinc-700">+250 грн</span>
+                </label>
+
+                <label className="flex items-center justify-between p-4 rounded-xl border border-zinc-200 hover:bg-zinc-50 cursor-pointer transition-colors">
+                  <div className="flex items-center gap-3">
+                    <input
+                      type="checkbox"
+                      checked={includeWax}
+                      onChange={(e) => setIncludeWax(e.target.checked)}
+                      className="w-4 h-4 accent-[hsl(38,90%,50%)] rounded"
+                    />
+                    <div>
+                      <span className="text-sm font-semibold text-zinc-800 block">
+                        Воскова гігієна (вуха, ніс, брови)
+                      </span>
+                      <span className="text-[11px] text-zinc-400">Видалення небажаного волосся</span>
+                    </div>
+                  </div>
+                  <span className="text-xs font-bold text-zinc-700">+150 грн</span>
+                </label>
+
+                <label className="flex items-center justify-between p-4 rounded-xl border border-zinc-200 hover:bg-zinc-50 cursor-pointer transition-colors">
+                  <div className="flex items-center gap-3">
+                    <input
+                      type="checkbox"
+                      checked={isFatherSon}
+                      onChange={(e) => setIsFatherSon(e.target.checked)}
+                      className="w-4 h-4 accent-[hsl(38,90%,50%)] rounded"
+                    />
+                    <div>
+                      <span className="text-sm font-semibold text-zinc-800 block">
+                        Додати стрижку для сина (до 12 років)
+                      </span>
+                      <span className="text-[11px] text-zinc-400">Паралельна стрижка у двох майстрів</span>
+                    </div>
+                  </div>
+                  <span className="text-xs font-bold text-zinc-700">+300 грн</span>
+                </label>
+              </div>
+            </div>
+
+            {/* Total Estimate Card */}
+            <div className="bg-[hsl(220,20%,9%)] text-white rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl border border-zinc-800">
+              <div>
+                <div className="flex items-center gap-3 text-xs text-zinc-400 uppercase tracking-wider font-bold">
+                  <span>Орієнтовний час: {duration} хв</span>
+                  <span>·</span>
+                  <span>Власна парковка</span>
+                </div>
+                <div className="text-3xl sm:text-4xl font-display font-extrabold text-[hsl(38,90%,50%)] mt-1">
+                  від {total} грн
+                </div>
+              </div>
+
+              <a
+                href="#contact"
+                className="w-full sm:w-auto bg-[hsl(38,90%,50%)] hover:bg-[hsl(35,95%,42%)] text-[hsl(220,20%,9%)] font-extrabold text-xs uppercase tracking-widest px-8 py-4 rounded-xl text-center shadow-lg transition-transform active:scale-95"
+              >
+                Забронювати на цей час
+              </a>
+            </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

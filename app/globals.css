@@ -1,16 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: hsl(220 20% 10%);
-  --color-primary-light: hsl(220 18% 16%);
-  --color-accent: hsl(38 88% 52%);
-  --color-accent-hover: hsl(38 95% 45%);
-  --color-bg-dark: hsl(220 22% 8%);
-  --color-bg-light: hsl(38 20% 96%);
+  --color-primary: hsl(220 20% 9%);
+  --color-primary-light: hsl(220 18% 14%);
+  --color-accent: hsl(38 90% 50%);
+  --color-accent-hover: hsl(35 95% 42%);
+  --color-bg-dark: hsl(220 20% 9%);
   --color-bg-card: hsl(220 18% 13%);
-  --color-text-main: hsl(220 25% 12%);
-  --color-text-muted: hsl(220 12% 45%);
-  --color-text-light: hsl(38 15% 92%);
+  --color-bg-light: hsl(38 25% 96%);
+  --color-text-main: hsl(220 10% 94%);
+  --color-text-muted: hsl(220 10% 68%);
+  --color-border-dark: hsl(220 15% 20%);
+  
   --font-display: 'Jost', sans-serif;
   --font-body: 'Rubik', sans-serif;
 }
@@ -19,23 +20,42 @@
   html {
     font-size: 16px;
     scroll-behavior: smooth;
-    background-color: var(--color-bg-dark);
-    color: var(--color-text-light);
   }
-  @media (min-width: 768px)  { html { font-size: 17px; } }
-  @media (min-width: 1280px) { html { font-size: 18px; } }
-  @media (min-width: 1600px) { html { font-size: 19px; } }
+  @media (min-width: 768px) {
+    html { font-size: 17px; }
+  }
+  @media (min-width: 1280px) {
+    html { font-size: 18px; }
+  }
+  @media (min-width: 1600px) {
+    html { font-size: 19px; }
+  }
 
   body {
     font-family: var(--font-body);
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-main);
     overflow-x: hidden;
-    margin: 0;
-    padding: 0;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2, h3, h4, .font-display {
     font-family: var(--font-display);
   }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(220 20% 8%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(220 15% 22%);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(38 90% 50%);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -48,36 +68,9 @@
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid hsl(38 90% 50%);
   outline-offset: 3px;
 }
-
-@media (max-width: 1024px) {
-  input:not([type="checkbox"]):not([type="radio"]),
-  select,
-  textarea {
-    font-size: max(16px, 1em);
-  }
-
-  [class~="justify-between"] {
-    gap: 0.75rem;
-  }
-
-  [class~="justify-between"] > * {
-    overflow-wrap: break-word;
-  }
-
-  button,
-  [role="button"] {
-    min-height: 44px;
-  }
-}
-
-html { font-size: 16px; }
-@media (min-width: 768px)  { html { font-size: 17px; } }
-@media (min-width: 1280px) { html { font-size: 18px; } }
-@media (min-width: 1600px) { html { font-size: 19px; } }
-@media (min-width: 1920px) { html { font-size: 20px; } }
 
 /* iOS Safari zooms the whole page when a focused field is under 16px. */
 @media (max-width: 1024px) {

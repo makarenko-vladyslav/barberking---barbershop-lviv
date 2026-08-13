@@ -31,124 +31,154 @@ export default function Header() {
     { href: "#tattoo", label: t("nav.tattoo") as string },
     { href: "#team", label: t("nav.team") as string },
     { href: "#reviews", label: t("nav.reviews") as string },
-    { href: "#contacts", label: t("nav.contacts") as string },
+    { href: "#contact", label: t("nav.contact") as string },
   ];
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[hsl(220,22%,8%)]/95 backdrop-blur-md border-b border-[hsl(38,88%,52%)]/20 py-3 shadow-xl"
-          : "bg-gradient-to-b from-black/90 via-black/50 to-transparent py-5"
+          ? "bg-[hsl(220,20%,9%)]/95 backdrop-blur-md py-3 border-b border-[hsl(220,15%,18%)] shadow-xl"
+          : "bg-gradient-to-b from-black/80 via-black/40 to-transparent py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Brand Wordmark */}
-        <a href="#" className="flex flex-col group">
-          <span className="text-xl sm:text-2xl font-extrabold tracking-wider font-display text-white group-hover:text-[hsl(38,88%,52%)] transition-colors">
+        {/* Wordmark Logo */}
+        <a href="#" className="group flex flex-col focus:outline-none">
+          <span className="font-display font-extrabold text-2xl tracking-wider text-white group-hover:text-[hsl(38,90%,50%)] transition-colors">
             BARBERKING
           </span>
-          <span className="text-[9px] tracking-[0.25em] uppercase text-[hsl(38,88%,52%)] font-semibold -mt-1">
-            БАРБЕРШОП ЛЬВІВ
+          <span className="text-[10px] tracking-[0.25em] text-[hsl(38,90%,50%)] font-semibold uppercase -mt-1">
+            ЛЬВІВ · 31А
           </span>
         </a>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-6">
-          {navLinks.map((link, idx) => (
+        {/* Desktop Nav */}
+        <nav className="hidden lg:flex items-center gap-7">
+          {navLinks.map((link) => (
             <a
-              key={idx}
+              key={link.href}
               href={link.href}
-              className="text-xs font-medium uppercase tracking-wider text-[hsl(38,15%,92%)]/80 hover:text-[hsl(38,88%,52%)] transition-colors"
+              className="text-xs uppercase tracking-widest text-zinc-300 hover:text-[hsl(38,90%,50%)] font-medium transition-colors"
             >
               {link.label}
             </a>
           ))}
         </nav>
 
-        {/* Header Right Actions */}
-        <div className="flex items-center gap-3">
-          {/* Phone Link */}
-          <a
-            href={`tel:${(t("nav.phone") as string).replace(/\s+/g, "")}`}
-            className="hidden sm:inline-flex items-center text-xs font-semibold tracking-wider text-white hover:text-[hsl(38,88%,52%)] transition-colors px-3 py-1.5 rounded border border-white/20 hover:border-[hsl(38,88%,52%)]/50"
-          >
-            {t("nav.phone") as string}
-          </a>
-
+        {/* Right CTA + Language */}
+        <div className="hidden sm:flex items-center gap-4">
           {/* Language Switcher */}
-          <div className="flex items-center border border-white/20 rounded p-0.5 bg-black/40">
+          <div className="flex items-center bg-zinc-900/80 border border-zinc-800 rounded-full p-1 text-xs font-semibold">
             <button
               onClick={() => setLocale("uk")}
-              className={`px-2 py-0.5 text-[11px] font-bold tracking-wider rounded transition-colors ${
+              className={`px-2.5 py-1 rounded-full transition-all ${
                 locale === "uk"
-                  ? "bg-[hsl(38,88%,52%)] text-[hsl(220,20%,10%)]"
-                  : "text-white/70 hover:text-white"
+                  ? "bg-[hsl(38,90%,50%)] text-[hsl(220,20%,9%)] font-bold shadow-sm"
+                  : "text-zinc-400 hover:text-white"
               }`}
             >
               UA
             </button>
             <button
               onClick={() => setLocale("en")}
-              className={`px-2 py-0.5 text-[11px] font-bold tracking-wider rounded transition-colors ${
+              className={`px-2.5 py-1 rounded-full transition-all ${
                 locale === "en"
-                  ? "bg-[hsl(38,88%,52%)] text-[hsl(220,20%,10%)]"
-                  : "text-white/70 hover:text-white"
+                  ? "bg-[hsl(38,90%,50%)] text-[hsl(220,20%,9%)] font-bold shadow-sm"
+                  : "text-zinc-400 hover:text-white"
               }`}
             >
               EN
             </button>
           </div>
 
-          {/* CTA Button */}
           <a
-            href="#booking"
-            className="hidden md:inline-flex items-center justify-center px-4 py-2 text-xs font-bold tracking-wider uppercase bg-[hsl(38,88%,52%)] hover:bg-[hsl(38,95%,45%)] text-[hsl(220,20%,10%)] rounded transition-all shadow-md shadow-[hsl(38,88%,52%)]/10"
+            href="tel:+380662636339"
+            className="text-xs tracking-wider text-zinc-200 hover:text-[hsl(38,90%,50%)] font-bold transition-colors whitespace-nowrap"
           >
-            {t("nav.book") as string}
+            +380 66 263 6339
           </a>
 
-          {/* Mobile Menu Toggle Button */}
+          <a
+            href="#contact"
+            className="bg-[hsl(38,90%,50%)] hover:bg-[hsl(35,95%,42%)] text-[hsl(220,20%,9%)] font-extrabold text-xs tracking-wider uppercase px-4 py-2.5 rounded-lg transition-transform active:scale-95 shadow-lg shadow-[hsl(38,90%,50%)]/15"
+          >
+            {t("cta.book") as string}
+          </a>
+        </div>
+
+        {/* Mobile Hamburger Button */}
+        <div className="flex items-center gap-3 lg:hidden">
+          <div className="flex items-center bg-zinc-900/90 border border-zinc-800 rounded-full p-0.5 text-xs">
+            <button
+              onClick={() => setLocale("uk")}
+              className={`px-2 py-0.5 rounded-full ${
+                locale === "uk" ? "bg-[hsl(38,90%,50%)] text-black font-bold" : "text-zinc-400"
+              }`}
+            >
+              UA
+            </button>
+            <button
+              onClick={() => setLocale("en")}
+              className={`px-2 py-0.5 rounded-full ${
+                locale === "en" ? "bg-[hsl(38,90%,50%)] text-black font-bold" : "text-zinc-400"
+              }`}
+            >
+              EN
+            </button>
+          </div>
+
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="lg:hidden px-2.5 py-1.5 text-xs font-bold tracking-widest uppercase border border-white/20 text-white rounded hover:border-[hsl(38,88%,52%)] hover:text-[hsl(38,88%,52%)] transition-colors"
-            aria-label={t("header.toggle_menu") as string}
+            aria-label="Toggle menu"
+            className="p-2 text-zinc-200 hover:text-[hsl(38,90%,50%)] focus:outline-none"
           >
-            {menuOpen ? (t("header.close") as string) : (t("header.menu") as string)}
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {menuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
           </button>
         </div>
       </div>
 
-      {/* Full-Screen Mobile Overlay Menu */}
+      {/* Fullscreen Mobile Menu Overlay */}
       {menuOpen && (
-        <div className="fixed inset-0 top-[60px] bg-[hsl(220,22%,8%)]/98 backdrop-blur-xl z-40 lg:hidden flex flex-col justify-between p-6 border-t border-[hsl(38,88%,52%)]/20 overflow-y-auto">
-          <nav className="flex flex-col gap-4 pt-4">
-            {navLinks.map((link, idx) => (
+        <div className="fixed inset-0 top-[60px] bg-[hsl(220,20%,9%)]/98 backdrop-blur-xl z-40 flex flex-col justify-between p-6 overflow-y-auto lg:hidden">
+          <div className="space-y-4 pt-4">
+            <div className="text-[10px] uppercase tracking-[0.3em] text-[hsl(38,90%,50%)] font-extrabold mb-4">
+              НАВІГАЦІЯ
+            </div>
+            {navLinks.map((link) => (
               <a
-                key={idx}
+                key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="text-base font-bold uppercase tracking-wider text-[hsl(38,15%,92%)] hover:text-[hsl(38,88%,52%)] transition-colors border-b border-white/5 pb-3 flex justify-between items-center"
+                className="block text-xl font-display font-bold uppercase tracking-wider text-zinc-100 hover:text-[hsl(38,90%,50%)] py-2 border-b border-zinc-800/60"
               >
-                <span>{link.label}</span>
-                <span className="text-[hsl(38,88%,52%)] font-mono text-xs">·</span>
+                {link.label}
               </a>
             ))}
-          </nav>
+          </div>
 
-          <div className="flex flex-col gap-3 pt-6 border-t border-white/10 mt-6">
+          <div className="mt-8 pt-6 border-t border-zinc-800 space-y-4">
             <a
-              href={`tel:${(t("nav.phone") as string).replace(/\s+/g, "")}`}
-              className="text-center py-3 text-xs font-bold text-[hsl(38,88%,52%)] border border-[hsl(38,88%,52%)]/40 rounded tracking-wider"
+              href="tel:+380662636339"
+              className="block text-center text-lg font-bold text-[hsl(38,90%,50%)]"
             >
-              {t("nav.phone") as string}
+              +380 66 263 6339
             </a>
+            <p className="text-xs text-center text-zinc-400">
+              Львів, вул. Шевченка, 31А · Безкоштовний паркінг
+            </p>
             <a
-              href="#booking"
+              href="#contact"
               onClick={() => setMenuOpen(false)}
-              className="text-center py-3 text-xs font-extrabold uppercase tracking-wider bg-[hsl(38,88%,52%)] text-[hsl(220,20%,10%)] rounded"
+              className="block w-full text-center bg-[hsl(38,90%,50%)] text-[hsl(220,20%,9%)] font-extrabold py-3.5 rounded-xl uppercase text-sm tracking-wider shadow-lg"
             >
-              {t("nav.book") as string}
+              {t("cta.book") as string}
             </a>
           </div>
         </div>

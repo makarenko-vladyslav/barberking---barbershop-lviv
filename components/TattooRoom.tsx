@@ -1,72 +1,96 @@
 "use client";
 
 import { useLocale } from "@/lib/i18n";
+import { Reveal } from "@/components/motion";
 
 export default function TattooRoom() {
   const { t } = useLocale();
+  const features = (t("tattoo.features") as string[]) || [];
 
   return (
-    <section id="tattoo" className="scroll-mt-20 py-24 bg-[hsl(220,18%,14%)] relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="tattoo" className="py-24 bg-[hsl(220,18%,13%)] border-y border-zinc-800 relative scroll-mt-16 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Text Side (7 cols) */}
-          <div className="lg:col-span-7">
-            <div className="text-xs font-bold uppercase tracking-[0.25em] text-[hsl(38,88%,52%)] mb-3 font-mono">
-              {t("tattoo.kicker") as string}
-            </div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold uppercase text-white tracking-tight mb-6 font-display">
-              {t("tattoo.title") as string}
-            </h2>
-            <p className="text-xs sm:text-sm text-[hsl(220,12%,70%)] leading-relaxed mb-8">
-              {t("tattoo.desc") as string}
-            </p>
+          {/* Left: 2-Photo Overlapped Cluster Layout */}
+          <div className="lg:col-span-6 relative">
+            <Reveal>
+              <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border border-zinc-700 max-w-md">
+                <img
+                  src="https://images.pexels.com/photos/18301169/pexels-photo-18301169.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
+                  alt="Tattoo Room process"
+                  loading="lazy"
+                  className="w-full h-[360px] sm:h-[420px] object-cover filter brightness-90 hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute top-4 left-4 bg-[hsl(38,90%,50%)] text-[hsl(220,20%,9%)] font-extrabold text-[11px] tracking-widest uppercase px-4 py-1.5 rounded-full shadow-lg">
+                  TATTOO ROOM
+                </div>
+              </div>
+            </Reveal>
 
-            <div className="space-y-4 mb-8">
-              <div className="p-4 rounded bg-[hsl(220,22%,8%)] border border-white/5 flex items-center justify-between">
-                <span className="text-xs font-semibold text-white">
-                  {t("tattoo.feature_1") as string}
-                </span>
-                <span className="text-xs font-mono text-[hsl(38,88%,52%)]">{t("tattoo.badge_sterile") as string}</span>
+            {/* Overlapped Second Photo */}
+            <Reveal delay={0.2}>
+              <div className="hidden sm:block absolute -bottom-8 -right-4 lg:right-0 z-20 w-64 rounded-2xl overflow-hidden border-2 border-[hsl(38,90%,50%)] shadow-2xl bg-zinc-900">
+                <img
+                  src="https://images.pexels.com/photos/9992819/pexels-photo-9992819.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200?auto=compress&cs=tinysrgb&fit=crop&h=600&w=600"
+                  alt="Tattoo Equipment Sterility"
+                  loading="lazy"
+                  className="w-full h-48 object-cover"
+                />
+                <div className="p-3 bg-zinc-950 text-[10px] font-mono text-zinc-300">
+                  Медична стерильність картриджів Cheyenne
+                </div>
               </div>
-              <div className="p-4 rounded bg-[hsl(220,22%,8%)] border border-white/5 flex items-center justify-between">
-                <span className="text-xs font-semibold text-white">
-                  {t("tattoo.feature_2") as string}
-                </span>
-                <span className="text-xs font-mono text-[hsl(38,88%,52%)]">{t("tattoo.badge_custom") as string}</span>
-              </div>
-              <div className="p-4 rounded bg-[hsl(220,22%,8%)] border border-white/5 flex items-center justify-between">
-                <span className="text-xs font-semibold text-white">
-                  {t("tattoo.feature_3") as string}
-                </span>
-                <span className="text-xs font-mono text-[hsl(38,88%,52%)]">{t("tattoo.badge_coverup") as string}</span>
-              </div>
-            </div>
-
-            <a
-              href="#booking"
-              className="inline-flex items-center justify-center px-8 py-4 text-xs font-extrabold uppercase tracking-wider bg-[hsl(38,88%,52%)] hover:bg-[hsl(38,95%,45%)] text-[hsl(220,20%,10%)] rounded shadow-lg transition-all"
-            >
-              {t("tattoo.cta") as string}
-            </a>
+            </Reveal>
           </div>
 
-          {/* Right Image Container (5 cols) */}
-          <div className="lg:col-span-5 relative rounded-xl overflow-hidden border border-white/10 shadow-2xl group">
-            <img
-              src="https://images.pexels.com/photos/9258291/pexels-photo-9258291.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
-              alt={t("tattoo.img_alt") as string}
-              loading="lazy"
-              className="w-full h-[400px] sm:h-[480px] object-cover filter brightness-90 group-hover:scale-105 transition-transform duration-700"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
-            <div className="absolute bottom-6 left-6 right-6 p-4 rounded bg-black/70 backdrop-blur-md border border-white/10">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-[hsl(38,88%,52%)] block mb-1 font-mono">
-                {t("tattoo.img_kicker") as string}
+          {/* Right: Copy & Features */}
+          <div className="lg:col-span-6">
+            <Reveal delay={0.1}>
+              <span className="text-xs uppercase tracking-[0.3em] font-extrabold text-[hsl(38,90%,50%)] block mb-2">
+                {t("tattoo.kicker") as string}
               </span>
-              <span className="text-xs text-white/80">
-                {t("tattoo.img_desc") as string}
-              </span>
-            </div>
+              <h2 className="text-3xl sm:text-5xl font-display font-extrabold uppercase text-white tracking-tight">
+                {t("tattoo.title") as string}
+              </h2>
+              <p className="mt-3 text-zinc-200 font-semibold text-base sm:text-lg">
+                {t("tattoo.subtitle") as string}
+              </p>
+              <p className="mt-4 text-zinc-400 text-sm leading-relaxed">
+                {t("tattoo.desc") as string}
+              </p>
+
+              {/* Quote caption */}
+              <div className="mt-6 p-4 rounded-xl bg-zinc-900/80 border-l-2 border-[hsl(38,90%,50%)]">
+                <p className="text-xs text-zinc-300 italic">"{t("tattoo.quote") as string}"</p>
+                <span className="text-[10px] uppercase font-bold text-[hsl(38,90%,50%)] mt-1 block">
+                  {t("tattoo.artist") as string}
+                </span>
+              </div>
+
+              <div className="mt-6 space-y-2.5">
+                {features.map((feat, idx) => (
+                  <div key={idx} className="flex items-center gap-3">
+                    <span className="text-[hsl(38,90%,50%)] font-bold text-xs font-mono">―</span>
+                    <span className="text-xs sm:text-sm text-zinc-200 font-medium">{feat}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 flex flex-col sm:flex-row gap-4">
+                <a
+                  href="#contact"
+                  className="bg-[hsl(38,90%,50%)] hover:bg-[hsl(35,95%,42%)] text-[hsl(220,20%,9%)] font-extrabold text-xs uppercase tracking-widest px-8 py-4 rounded-xl shadow-xl transition-transform active:scale-95 text-center"
+                >
+                  Записатись на консультацію
+                </a>
+                <a
+                  href="tel:+380662636339"
+                  className="bg-zinc-900 hover:bg-zinc-800 text-white border border-zinc-700 font-bold text-xs uppercase tracking-widest px-6 py-4 rounded-xl text-center"
+                >
+                  +380 66 263 6339
+                </a>
+              </div>
+            </Reveal>
           </div>
         </div>
       </div>
