@@ -24,7 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     "@context": "https://schema.org",
     "@type": "BarberShop",
     "name": "Barberking Lviv",
-    "image": "https://lviv.bking.com.ua/wp-content/themes/bking/images/price-banner.jpg",
+    "image": "/barberking---barbershop-lviv/media/18577b77e34c2f08.jpg",
     "@id": "https://lviv.bking.com.ua",
     "url": "https://lviv.bking.com.ua",
     "telephone": "+380662636339",
