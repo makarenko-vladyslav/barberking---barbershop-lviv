@@ -23,7 +23,7 @@ export default function Hero() {
           muted
           loop
           playsInline
-          poster="https://images.pexels.com/photos/18301169/pexels-photo-18301169.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200"
+          poster="https://images.pexels.com/photos/4969838/pexels-photo-4969838.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
           className="w-full h-full object-cover scale-105 filter brightness-40 contrast-110"
         >
           <source

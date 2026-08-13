@@ -16,7 +16,7 @@ export default function TattooRoom() {
             <Reveal>
               <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border border-zinc-700 max-w-md">
                 <img
-                  src="https://images.pexels.com/photos/18301169/pexels-photo-18301169.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
+                  src="https://images.pexels.com/photos/37764947/pexels-photo-37764947.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
                   alt="Tattoo Room process"
                   loading="lazy"
                   className="w-full h-[360px] sm:h-[420px] object-cover filter brightness-90 hover:scale-105 transition-transform duration-700"
@@ -31,7 +31,7 @@ export default function TattooRoom() {
             <Reveal delay={0.2}>
               <div className="hidden sm:block absolute -bottom-8 -right-4 lg:right-0 z-20 w-64 rounded-2xl overflow-hidden border-2 border-[hsl(38,90%,50%)] shadow-2xl bg-zinc-900">
                 <img
-                  src="https://images.pexels.com/photos/9992819/pexels-photo-9992819.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200?auto=compress&cs=tinysrgb&fit=crop&h=600&w=600"
+                  src="https://images.pexels.com/photos/18301169/pexels-photo-18301169.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
                   alt="Tattoo Equipment Sterility"
                   loading="lazy"
                   className="w-full h-48 object-cover"

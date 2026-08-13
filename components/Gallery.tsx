@@ -8,27 +8,27 @@ export default function Gallery() {
 
   const galleryImages = [
     {
-      url: "https://images.pexels.com/photos/18301169/pexels-photo-18301169.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
+      url: "https://images.pexels.com/photos/9315046/pexels-photo-9315046.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
       caption: "Інтер'єр Barberking Lviv",
     },
     {
-      url: "https://images.pexels.com/photos/9992819/pexels-photo-9992819.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
+      url: "https://images.pexels.com/photos/10775080/pexels-photo-10775080.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
       caption: "Класична атмосфера та робочі місця",
     },
     {
-      url: "https://images.pexels.com/photos/9992819/pexels-photo-9992819.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
+      url: "https://images.pexels.com/photos/9992819/pexels-photo-9992819.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
       caption: "Процес королівського гоління",
     },
     {
-      url: "https://images.pexels.com/photos/9992819/pexels-photo-9992819.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
+      url: "https://images.pexels.com/photos/7518735/pexels-photo-7518735.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
       caption: "Стрижка машинкою та фейд",
     },
     {
-      url: "https://images.pexels.com/photos/9992819/pexels-photo-9992819.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+      url: "https://images.pexels.com/photos/10775080/pexels-photo-10775080.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
       caption: "Моделювання бороди",
     },
     {
-      url: "https://images.pexels.com/photos/7518735/pexels-photo-7518735.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+      url: "https://images.pexels.com/photos/8867160/pexels-photo-8867160.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
       caption: "Точність роботи барбера",
     },
   ];
